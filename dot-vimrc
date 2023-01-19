@@ -3,7 +3,6 @@ set nocompatible
 set wrap
 set encoding=UTF-8
 set number
-set bg=dark
 
 syntax enable
 
