@@ -15,11 +15,16 @@ endif
 
 " VimPlug
 call plug#begin('~/.vim/plugged')
+" git
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" display, basic completion
+Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'preservim/nerdtree'
 Plug 'scrooloose/syntastic'
+Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
 
 " syntastic options
