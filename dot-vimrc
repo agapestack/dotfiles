@@ -25,6 +25,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'scrooloose/syntastic'
 Plug 'ntpeters/vim-better-whitespace'
+
 call plug#end()
 
 " syntastic options

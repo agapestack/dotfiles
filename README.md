@@ -7,5 +7,5 @@
 ```bash
 cd ~
 git clone git@github.com:agapestack/dotfiles.git
-stow -d ~/dotfiles -t ~ --dotfiles .
+make
 ```

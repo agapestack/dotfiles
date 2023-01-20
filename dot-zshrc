@@ -7,8 +7,12 @@ fi
 
 export ZSH="$HOME/.oh-my-zsh"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export EDITOR='vim'
+export EDITOR='nvim'
+export VISUAL='nvim'
 export GOPATH=$HOME/go
+
+alias "vim"="nvim"
+alias "vi"="nvim"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 

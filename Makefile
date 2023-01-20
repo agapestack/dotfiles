@@ -6,7 +6,10 @@ RESET  := $(shell tput -Txterm sgr0)
 
 all: help
 
-install-terminal-theme: ## run gogh
+link: ## run stow to create symlinks
+	cd ~
+	stow -d ~/dotfiles -t ~ --dotfiles . --ignore='^README.*' --ignore='Makefile'
+install-terminal-theme:	## run gogh
 	bash -c  "$(wget -qO- https://git.io/vQgMr)" 
 
 .PHONY: help
@@ -17,6 +20,6 @@ help: ## Show this help.
 	@echo ''
 	@echo 'Targets:'
 	@awk 'BEGIN {FS = ":.*?## "} { \
-		if (/^[a-zA-Z_-]+:.*?##.*$$/) {printf "    ${YELLOW}%-20s${GREEN}%s${RESET}\n", $$1, $$2} \
+		if (/^[a-zA-Z_-]+:.*?##.*$$/) {printf "    ${YELLOW}%-30s${GREEN}%s${RESET}\n", $$1, $$2} \
 		else if (/^## .*$$/) {printf "  ${CYAN}%s${RESET}\n", substr($$1,4)} \
 		}' $(MAKEFILE_LIST)
