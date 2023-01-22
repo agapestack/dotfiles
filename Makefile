@@ -1,3 +1,4 @@
+SHELL := /bin/bash # Use bash syntax
 GREEN  := $(shell tput -Txterm setaf 2)
 YELLOW := $(shell tput -Txterm setaf 3)
 WHITE  := $(shell tput -Txterm setaf 7)
@@ -6,12 +7,31 @@ RESET  := $(shell tput -Txterm sgr0)
 
 all: help
 
+## GLOBAL
+.PHONY: link
 link: ## run stow to create symlinks
 	cd ~
 	stow -d ~/dotfiles -t ~ --dotfiles . --ignore='^README.*' --ignore='Makefile'
-install-terminal-theme:	## run gogh
-	bash -c  "$(wget -qO- https://git.io/vQgMr)" 
+	
+.PHONY: install-theme
+install-theme:	## install terminal theme
+	make install-gogh
+	make install-powerlevel
 
+.PHONY:
+allow-scripts: ## give execution rights to scripts
+	sudo chmod +x ${HOME}/dotfiles/scripts/*.sh
+
+## THEME
+.PHONY: install-gogh
+install-gogh: ## install gogh
+	/bin/bash ${HOME}/dotfiles/scripts/gogh.sh
+
+.PHONY: install-powerlevel
+install-powerlevel: ## install powerlevel10K
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+
+## HELP
 .PHONY: help
 help: ## Show this help.
 	@echo ''
