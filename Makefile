@@ -12,7 +12,7 @@ all: help
 link: ## run stow to create symlinks
 	cd ~
 	stow -d ~/dotfiles -t ~ --dotfiles . --ignore='^README.*' --ignore='Makefile'
-	
+
 .PHONY: install-theme
 install-theme:	## install terminal theme
 	make install-gogh
