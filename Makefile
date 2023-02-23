@@ -32,6 +32,12 @@ install-powerlevel: ## install powerlevel10K
 	cd ~
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 	cd dotfiles
+
+## UNINSTALL
+.PHONY: uninstall-src
+uninstall-src: ## remove $HOME/dotfiles/src folder
+	rm -rf "${HOME}/dotfiles/src"
+
 ## HELP
 .PHONY: help
 help: ## Show this help.
