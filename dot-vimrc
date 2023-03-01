@@ -3,6 +3,7 @@ set nocompatible
 set wrap
 set encoding=UTF-8
 set number
+set clipboard=unnamedplus
 
 syntax enable
 
