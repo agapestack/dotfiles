@@ -10,6 +10,7 @@ export VISUAL='vim'
 export GOPATH=$HOME/go
 
 alias "vi"="vim"
+alias "list_monitors"="swaymsg -t get_outputs"
 
 plugins=(
 	git
@@ -28,8 +29,8 @@ export PATH="$PNPM_HOME:$PATH"
 
 ############################################################################
 #___________________________ Sway  ______________________________________#
-if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  exec sway
+if [ "$(tty)" = "/dev/tty1" ]; then
+	exec dbus-run-session sway
 fi
 ############################################################################
 

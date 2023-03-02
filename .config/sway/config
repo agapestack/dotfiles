@@ -2,29 +2,28 @@ input * {
 	xkb_layout "fr"
 }
 
-font pango: SourceCodePro Medium 14
+font pango: "RobotoMono Nerd Font" Regular 14
 
-### Variables
-#
-# Logo key. Use Mod1 for Alt.
+# MAPING
 set $mod Mod1
-# Home row direction keys, like vim
+set $super Mod4
+
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
-set $term alacritty
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-set $menu wofi --show run
 
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# APPS
+set $term alacritty -o font.size=12
+set $menu exec wofi --show drun
 
+# PATHS
+set $wallpapers ~/dotfiles/wallpapers
+set $lock_path ~/dotfiles/scripts/swaylock.sh
+set $idle_path ~/dotfiles/scripts/swayidle.sh
+
+# MONITORS
+output * bg $wallpapers/lego fill
 output DP-4 pos 0 0 res 1680x1050
 output DP-5 pos 1680 0 res 1680x1050
 output eDP-1 pos 700 1050 res 1920x1080
@@ -33,52 +32,15 @@ workspace 1 output DP-4
 workspace 2 output DP-5
 workspace 3 output eDP-1
 
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-
-### Idle configuration
-#
-# Example configuration:
-#
-exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000'
-
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-
-### Key bindings
-#
-# Basics:
-#
+# BINDINGS
     # Start a terminal
     bindsym $mod+Return exec $term
-
     # Kill focused window
     bindsym $mod+Shift+q kill
-
     # Start your launcher
     bindsym $mod+d exec $menu
+
+    bindsym $super+l exec $lock_path
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -184,10 +146,6 @@ exec swayidle -w \
 # Resizing containers:
 #
 mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
     bindsym $left resize shrink width 10px
     bindsym $down resize grow height 10px
     bindsym $up resize shrink height 10px
@@ -205,23 +163,10 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-#
 # Status Bar:
-#
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+	swaybar_command waybar
 }
 
 include /etc/sway/config.d/*
