@@ -11,11 +11,10 @@ all: help
 .PHONY: link
 link: ## run stow to create symlinks
 	cd ~
-	stow -d ~/dotfiles -t ~ --dotfiles . --ignore='^README.*' --ignore='Makefile' --ignore='etc/'
+	stow -d ~/dotfiles -t ~ --dotfiles . --ignore='^README.*' --ignore='Makefile' --ignore='etc/' --ignore='img/'
 
 .PHONY: install-theme
 install-theme:	## install terminal theme
-	make install-gogh
 	make install-powerlevel
 
 .PHONY: allow-scripts
@@ -42,27 +41,26 @@ install-term: ## zsh alacritty
 	yay -S zsh alacritty
 
 .PHONY: install-file-manager
-install-file-manager: ## dolphin & preview
-	yay -R thunar
+install-file-manager: ## thunar
+	pacman -S thunar
 
 .PHONY: install-sway
-install-sway: ## sway wofi waybar swaylock-effects-git swayidle swaybg
-	yay -S 	yay -S sway wofi waybar swaylock-effects-git swayidle swaybg
+install-sway: ## sway waybar swaylock-effects-git swayidle swaybg
+	yay -S sway waybar swaylock-effects-git swayidle swaybg mako
+
+.PHONY: install-addons
+install-addons:
+	pacman -S neofetch mpd rofi
+
 
 .PHONY: install-font
-install-font: ## adobe-ro font-awesome
-	yay adobe-source-code-pro-fonts otf-font-awesome ttf-font-awesome ttf-roboto-mono-nerd
+install-font: ## adobe-ro font-awesome roboto-mono-nerd
+	pacman -S adobe-source-code-pro-fonts otf-font-awesome ttf-font-awesome ttf-roboto-mono-nerd
 
 ## THEME
-.PHONY: install-gogh
-install-gogh: ## install gogh
-	/bin/bash ${HOME}/dotfiles/scripts/gogh.sh
-
 .PHONY: install-powerlevel
 install-powerlevel: ## install powerlevel10K
-	cd ~
-	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-	cd dotfiles
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
 
 ## UNINSTALL
 .PHONY: uninstall-src

@@ -1,3 +1,4 @@
+# vim: ts=2 sw=2 et
 input * {
 	xkb_layout "fr"
 }
@@ -5,42 +6,75 @@ input * {
 font pango: "RobotoMono Nerd Font" Regular 14
 
 # MAPING
-set $mod Mod1
-set $super Mod4
+set {
+  $mod Mod1
+  $super Mod4
 
-set $left h
-set $down j
-set $up k
-set $right l
+  $left h
+  $down j
+  $up k
+  $right l
+}
 
 # APPS
-set $term alacritty -o font.size=12
-set $menu exec wofi --show drun
+set {
+  $term alacritty -o font.size=12
+  $menu wofi --show run
+  # $file rofi -show filebrowser | swaymsg
+  # $power rofi -show powermenu | swaymsg
+  # $browser firefox
+  # $private-browser firefox --private-window
+}
+
+  # Start your launcher
+  bindsym $mod+d exec $menu
+
+
 
 # PATHS
-set $wallpapers ~/dotfiles/wallpapers
+set $wallpapers ~/dotfiles/img/wallpapers
 set $lock_path ~/dotfiles/scripts/swaylock.sh
 set $idle_path ~/dotfiles/scripts/swayidle.sh
 
+# Notifications
+bindsym $mod+n exec "makoctl dismiss"
+bindsym $mod+Shift+n exec "makoctl dismiss -a"
+
+# Borders and Gaps
+gaps inner 6
+# gaps outer -8
+# default_border none
+
+# Colours
+set {
+  $accent #ebdbb2
+  $red #cc241d
+  $darkgray #3c3836
+}
+
+client.focused          $accent $accent $darkgray $accent $accent
+client.focused_inactive $darkgray $darkgray $accent $darkgray $darkgray
+client.unfocused        $darkgray $darkgray $accent $darkgray $darkgray
+client.urgent           $red $red $accent $red $red
+
+
 # MONITORS
-output * bg $wallpapers/lego fill
-output DP-4 pos 0 0 res 1680x1050
-output DP-5 pos 1680 0 res 1680x1050
+output * bg $wallpapers/paint fill
 output eDP-1 pos 700 1050 res 1920x1080
 
 workspace 1 output DP-4
 workspace 2 output DP-5
 workspace 3 output eDP-1
 
+exec waybar
+exec mako
+
 # BINDINGS
     # Start a terminal
     bindsym $mod+Return exec $term
     # Kill focused window
     bindsym $mod+Shift+q kill
-    # Start your launcher
-    bindsym $mod+d exec $menu
-
-    bindsym $super+l exec $lock_path
+    bindsym $super+$mod+l exec $lock_path
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -52,9 +86,6 @@ workspace 3 output eDP-1
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-#
 # Moving around:
 #
     # Move your focus around
@@ -128,13 +159,13 @@ workspace 3 output eDP-1
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
 
-    # Move focus to the parent container
+# Move focus to the parent container
     bindsym $mod+a focus parent
 #
 # Scratchpad:
 #
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
+# Sway has a "scratchpad", which is a bag of holding for windows.
+# You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
     bindsym $mod+Shift+minus move scratchpad
@@ -162,11 +193,5 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-
-# Status Bar:
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-	swaybar_command waybar
-}
 
 include /etc/sway/config.d/*
