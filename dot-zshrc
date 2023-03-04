@@ -26,6 +26,8 @@ export PNPM_HOME="/home/agape/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 ############################################################################
 
 ############################################################################

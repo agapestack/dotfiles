@@ -32,6 +32,20 @@ install-asdf: ## install asdf
 	git clone https://aur.archlinux.org/asdf-vm.git && cd asdf-vm && makepkg -si
 	cd dotfiles
 
+.PHONY: install-rust
+install-rust: ## install rustup
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+.PHONY: install-zellij
+install-zellij: ## install zellij
+	cargo install --locked zellij
+	rustup update
+
+.PHONY: install-login
+install-login: ## install ly for login screen
+	yay -S ly
+	sudo systemctl enable ly
+
 .PHONY: install-tools
 install-tools: ## pkg-config curl git
 	pacman -S pkg-config curl git
@@ -46,7 +60,7 @@ install-file-manager: ## thunar
 
 .PHONY: install-sway
 install-sway: ## sway waybar swaylock-effects-git swayidle swaybg
-	yay -S sway waybar swaylock-effects-git swayidle swaybg mako
+	yay -S sway waybar swaylock-effects-git swayidle swaybg mako xorg-xwayland
 
 .PHONY: install-addons
 install-addons:

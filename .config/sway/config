@@ -5,6 +5,15 @@ input * {
 
 font pango: "RobotoMono Nerd Font" Regular 14
 
+# MONITORS
+set {
+  $X390 'LG Display 0x060A Unknown'
+  $benq2 'BNQ BenQ GW2480 87K0045601Q'
+  $benq3 'BNQ BenQ GW2480 ETS9K02203SL0'
+}
+output $benq2 pos 0 0 res 1920x1080
+output $benq3 pos 1920 0 res 1920x1080
+
 # MAPING
 set {
   $mod Mod1
