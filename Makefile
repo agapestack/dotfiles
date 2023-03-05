@@ -48,7 +48,7 @@ install-login: ## install ly for login screen
 
 .PHONY: install-tools
 install-tools: ## pkg-config curl git
-	pacman -S pkg-config curl git
+	pacman -S pkg-config curl git lua
 
 .PHONY: install-term
 install-term: ## zsh alacritty
