@@ -12,6 +12,7 @@ export GOPATH=$HOME/go
 
 alias "vi"="vim"
 alias "list_monitors"="swaymsg -t get_outputs"
+alias "list_apps"="swaymsg -t get_tree | less"
 
 plugins=(
 	git
