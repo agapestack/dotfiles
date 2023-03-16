@@ -60,7 +60,7 @@ install-file-manager: ## thunar
 
 .PHONY: install-sway
 install-sway: ## sway waybar swaylock-effects-git swayidle swaybg
-	yay -S sway waybar swaylock-effects-git swayidle swaybg mako xorg-xwayland
+	yay -S sway waybar swaylock-effects-git swayidle swaybg mako xorg-xwayland brightnessctl
 
 .PHONY: install-addons
 install-addons:

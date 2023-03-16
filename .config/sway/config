@@ -39,6 +39,7 @@ workspace 3 output $benq3
     assign          [app_id="alacritty"]            1
     assign 		    [app_id="firefox"] 		        2
     assign          [class="VSCodium"]              3
+    assign          [class="obsidian"]              3
     assign 		    [class="Spotify"] 		        5
     assign          [class="discord"]               5
 
@@ -59,6 +60,17 @@ set {
 
 # Start your launcher
 bindsym $mod+d exec $menu
+
+# Light control
+bindsym --locked $mod+XF86MonBrightnessUp exec brightnessctl s +5%
+bindsym --locked $mod+XF86MonBrightnessDown exec brightnessctl s 5%-
+
+# Sound control
+bindsym $mod+XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym $mod+XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym $mod+XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym $mod+XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+
 
 # NOTIFICATIONS
 bindsym $mod+n exec "makoctl dismiss"

@@ -1,16 +1,15 @@
 {
   "modules-left": ["sway/workspaces", "sway/window", "sway/mode"],
-  "modules-center": ["clock"],
-  "modules-right": ["pulseaudio", "backlight", "network", "battery"],
+  "modules-center": ["custom/weather", "clock"],
+  "modules-right": ["pulseaudio", "network", "battery"],
   "clock": {
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format": "{:%d %b %H:%M}"
   },
-  "backlight": {
-    "format": "{percent}% {icon}",
-    "format-icons": ["", "", "", "", "", "", "", "", ""],
-    "on-scroll-up": "light -A 1",
-    "on-scroll-down": "light -U 1"
+  "custom/weather": {
+    "format": "{}",
+    "exec": "curl \"wtter.in/pdx?format=%c%t\"",
+    "interval": 6000
   },
   "battery": {
     "states": {
@@ -33,7 +32,7 @@
     "format-icons": {
       "headphone": "",
       "hands-free": "",
-      "headset": "",
+      "headset": "",
       "phone": "",
       "portable": "",
       "car": "",
