@@ -59,8 +59,8 @@ install-term: ## zsh alacritty
 	yay -S zsh alacritty
 
 .PHONY: install-file-manager
-install-file-manager: ## thunar
-	pacman -S thunar
+install-file-manager: ## install thunar, imv for image, vlc for videos
+	pacman -S thunar imv vlc
 
 .PHONY: install-sway
 install-sway: ## sway waybar swaylock-effects-git swayidle swaybg

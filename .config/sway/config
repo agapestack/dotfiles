@@ -65,7 +65,7 @@ set {
     $menu wofi --show run
 }
 
-# Start your launcher
+# WOFI
 bindsym $mod+d exec $menu
 
 # Light control
@@ -78,6 +78,8 @@ bindsym $mod+XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym $mod+XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym $mod+XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
+# SCREENSHOT
+bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy
 
 # NOTIFICATIONS
 bindsym $mod+n exec "makoctl dismiss"
