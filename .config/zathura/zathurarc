@@ -1,34 +1,60 @@
-set selection-clipboard clipboard
+# Zathura configuration file
+# See man `man zathurarc'
 
-set font "FiraCode Nerd Font 12"
+# Open document in fit-width mode by default
+set adjust-open "best-fit"
 
-set default-bg "#282828"
-set default-fg "#ebdbb2"
+# One page per row by default
+set pages-per-row 1
 
-set completion-bg "#3c3836"
-set completion-fg "#ebdbb2"
-set completion-highlight-bg "#83a598"
-set completion-highlight-fg "#282828"
-set completion-group-bg "#3c3836"
-set completion-group-fg "#ebdbb2"
+#stop at page boundries
+set scroll-page-aware "true"
+set smooth-scroll "true"
+set scroll-full-overlap 0.01
+set scroll-step 100
 
-set statusbar-bg "#3c3836"
-set statusbar-fg "#ebdbb2"
+#zoom settings
+set zoom-min 10
+set guioptions ""
 
-set inputbar-bg "#3c3836"
-set inputbar-fg "#ebdbb2"
+# zathurarc-dark
 
-set notification-bg "#3c3836"
-set notification-fg "#ebdbb2"
-set notification-error-bg "#3c3836"
-set notification-error-fg "#fb4934"
-set notification-warning-bg "#3c3836"
-set notification-warning-fg "#fabd2f"
+set font "iosevka 15"
+set default-bg "#12151d" #00
+set default-fg "#ABB2BF" #01
 
-set highlight-color "#83a598"
+set statusbar-fg "#ABB2BF" #04
+set statusbar-bg "#12151d" #01
 
-set recolor
-set recolor-keephue
-set recolor-lightcolor "#282828"
-set recolor-darkcolor "#ebdbb2"
+set inputbar-bg "#1e222a" #00
+set inputbar-fg "#ABB2BF" #02
 
+set notification-error-bg "#E06C75" #08
+set notification-error-fg "#12151d" #00
+
+set notification-warning-bg "#D19A66" #08
+set notification-warning-fg "#12151d" #00
+
+set highlight-color "#98C379" #0A
+set highlight-active-color "#ABB2BF" #0D
+
+set completion-highlight-fg "#12151d" #02
+set completion-highlight-bg "#C678DD" #0C
+
+set completion-bg "#1e222a" #02
+set completion-fg "#ABB2BF" #0C
+
+set notification-bg "#1e222a" #0B
+set notification-fg "#12151d" #00
+
+set recolor "true"
+set recolor-lightcolor "#12151d" #00
+set recolor-darkcolor "#ABB2BF" #06
+set recolor-reverse-video "false"
+set recolor-keephue "true"
+
+set render-loading "false"
+set scroll-step 50
+unmap f
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
