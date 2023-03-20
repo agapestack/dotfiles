@@ -41,6 +41,10 @@ install-zellij: ## install zellij
 	cargo install --locked zellij
 	rustup update
 
+.PHONY: install-screenshot
+install-screenshot: ## install slurp & grim
+	yay -S grim slurp
+
 .PHONY: install-login
 install-login: ## install ly for login screen
 	yay -S ly
@@ -64,7 +68,7 @@ install-sway: ## sway waybar swaylock-effects-git swayidle swaybg
 
 .PHONY: install-addons
 install-addons:
-	pacman -S neofetch mpd rofi
+	pacman -S neofetch mpd
 
 
 .PHONY: install-font

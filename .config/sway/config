@@ -21,19 +21,26 @@ output * bg $wallpapers/lego fill
 
 # MONITORS
 set {
-    $X390 'LG Display 0x060A Unknown'
-    $benq2 'BNQ BenQ GW2480 87K0045601Q'
-    $benq3 'BNQ BenQ GW2480 ETS9K02203SL0'
+    $main 'eDP-1'
+#    $benq2 'BNQ BenQ GW2480 87K0045601Q'
+#    $benq3 'BNQ BenQ GW2480 ETS9K02203SL0'
+    $acer1 'DP-4'
+    $acer2 'DP-5'
 }
 
-output $X390 pos 0 1080 res 1920x1080
-output $benq2 pos 0 0 res 1920x1080
-output $benq3 pos 1920 0 res 1920x1080
+output $main pos 0 1050 res 1920x1080
+# output $benq2 pos 0 0 res 1920x1080
+# output $ben3 pos 1920 0 res 1920x1080
+output $acer1 pos 0 0 res 1680x1050
+output $acer2 pos 1680 0 res 1680x1050
 
 # WORKSPACES
-workspace 1 output $X390
-workspace 2 output $benq2
-workspace 3 output $benq3
+workspace 1 output $main
+# workspace 2 output $benq2
+# workspace 3 output $benq3
+workspace 2 output $acer1
+workspace 3 output $acer2
+
 
 # ASSIGNMENTS
     assign          [app_id="alacritty"]            1
@@ -92,6 +99,10 @@ client.urgent           $red $red $accent $red $red
 # EXEC
 exec waybar
 exec mako
+    # ensure systemd/dbus is aware of env variables
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 # BINDINGS
     # Start a terminal
