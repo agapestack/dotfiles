@@ -63,8 +63,8 @@ install-file-manager: ## install thunar, imv for image, vlc for videos
 	pacman -S thunar imv vlc
 
 .PHONY: install-sway
-install-sway: ## sway waybar swaylock-effects-git swayidle swaybg wev xorg-xwaylang brightnessctl
-	yay -S sway waybar swaylock-effects-git swayidle swaybg mako xorg-xwayland brightnessctl wev
+install-sway: ## sway waybar swaylock-effects-git swayidle swaybg wev xorg-xwaylang brightnessctl autotiling
+	yay -S sway waybar swaylock-effects-git swayidle swaybg mako xorg-xwayland brightnessctl wev autotiling
 
 .PHONY: install-addons
 install-addons:

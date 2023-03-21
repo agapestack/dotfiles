@@ -99,6 +99,7 @@ client.urgent           $red $red $accent $red $red
 
 
 # EXEC
+exec_always autotiling
 exec waybar
 exec mako
     # ensure systemd/dbus is aware of env variables
