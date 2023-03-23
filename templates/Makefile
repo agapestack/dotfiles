@@ -1,3 +1,4 @@
+SHELL := /bin/bash # Use bash syntax
 GREEN  := $(shell tput -Txterm setaf 2)
 YELLOW := $(shell tput -Txterm setaf 3)
 WHITE  := $(shell tput -Txterm setaf 7)
@@ -6,10 +7,10 @@ RESET  := $(shell tput -Txterm sgr0)
 
 all: help
 
-## GLOBAL
+## GLOBAL MACRO
 .PHONY: hello
-hello: ## echo hello in terminal
-	echo hello
+hello: ## hello
+	echo "hello"
 
 ## HELP
 help: ## Show this help.
@@ -19,7 +20,9 @@ help: ## Show this help.
 	@echo ''
 	@echo 'Targets:'
 	@awk 'BEGIN {FS = ":.*?## "} { \
-                if (/^[a-zA-Z_-]+:.*?##.*$$/) {printf "    ${YELLOW}%-30s${GREEN}>
-                else if (/^## .*$$/) {printf "  ${CYAN}%s${RESET}\n", substr($$1,>
-                }' $(MAKEFILE_LIST)
+		if (/^[a-zA-Z_-]+:.*?##.*$$/) {printf "    ${YELLOW}%-30s${GREEN}%s${RESET}\n", $$1, $$2} \
+		else if (/^## .*$$/) {printf "  ${CYAN}%s${RESET}\n", substr($$1,4)} \
+		}' $(MAKEFILE_LIST)
+
+
 
