@@ -22,18 +22,15 @@ output * bg $wallpapers/lego fill
 # MONITORS
 set {
     $X390 'LG Display 0x060A Unknown'
-    $benq2 'BNQ BenQ GW2480 87K0045601Q'
-    $benq3 'BNQ BenQ GW2480 ETS9K02203SL0'
+    $LG   'LG Electronics LG HDR 4K 301MABTJ4T49'
 }
 
-output $X390 pos 0 1080 res 1920x1080
-output $benq2 pos 0 0 res 1920x1080
-output $benq3 pos 1920 0 res 1920x1080
+output $X390 pos 960 2160 res 1920x1080
+output $LG pos 0 0 res 3840x2160
 
 # WORKSPACES
 workspace 1 output $X390
-workspace 2 output $benq2
-workspace 3 output $benq3
+workspace 2 output $LG
 
 # ASSIGNMENTS
     assign          [app_id="alacritty"]            1
