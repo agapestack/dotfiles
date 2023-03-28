@@ -41,30 +41,34 @@ install-zellij: ## install zellij
 	cargo install --locked zellij
 	rustup update
 
+.PHONY: install-screenshot
+install-screenshot: ## install slurp & grim
+	yay -S grim slurp
+
 .PHONY: install-login
 install-login: ## install ly for login screen
 	yay -S ly
 	sudo systemctl enable ly
 
 .PHONY: install-tools
-install-tools: ## pkg-config curl git
-	pacman -S pkg-config curl git lua
+install-tools: ## pkg-config curl git wl-clipboard
+	pacman -S pkg-config curl git lua wl-clipboard
 
 .PHONY: install-term
 install-term: ## zsh alacritty
 	yay -S zsh alacritty
 
 .PHONY: install-file-manager
-install-file-manager: ## thunar
-	pacman -S thunar
+install-file-manager: ## install thunar, imv for image, vlc for videos
+	pacman -S thunar imv vlc
 
 .PHONY: install-sway
-install-sway: ## sway waybar swaylock-effects-git swayidle swaybg
-	yay -S sway waybar swaylock-effects-git swayidle swaybg mako xorg-xwayland brightnessctl
+install-sway: ## sway waybar swaylock-effects-git swayidle swaybg wev xorg-xwaylang brightnessctl autotiling
+	yay -S sway waybar swaylock-effects-git swayidle swaybg mako xorg-xwayland brightnessctl wev autotiling
 
 .PHONY: install-addons
 install-addons:
-	pacman -S neofetch mpd rofi
+	pacman -S neofetch mpd
 
 
 .PHONY: install-font
@@ -97,5 +101,6 @@ help: ## Show this help.
 		if (/^[a-zA-Z_-]+:.*?##.*$$/) {printf "    ${YELLOW}%-30s${GREEN}%s${RESET}\n", $$1, $$2} \
 		else if (/^## .*$$/) {printf "  ${CYAN}%s${RESET}\n", substr($$1,4)} \
 		}' $(MAKEFILE_LIST)
+
 
 

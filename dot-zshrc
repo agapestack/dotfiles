@@ -13,6 +13,17 @@ export GOPATH=$HOME/go
 alias "vi"="vim"
 alias "list_monitors"="swaymsg -t get_outputs"
 alias "list_apps"="swaymsg -t get_tree | less"
+alias "list_inputs"="wev"
+alias "init_Makefile"="cp $HOME/dotfiles/templates/Makefile ."
+
+# iptables aliases
+alias "ipt-L"="sudo iptables -L --line-numbers"
+alias "ipt-DI"="sudo iptables -D INPUT"
+alias "ipt-DF"="sudo iptables -D FORWARD"
+alias "ipt-DO"="sudo iptables -D OUTPUT"
+alias "ipt-II"="sudo iptable -I INPUT"
+alias "ipt-IF"="sudo iptables -I FORWARD"
+alias "ipt-IO"="sudo iptables -I OUTPUT"
 
 plugins=(
 	git
@@ -24,9 +35,8 @@ source /opt/asdf-vm/asdf.sh
 
 # pnpm
 export PNPM_HOME="/home/agape/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+export PATH="$HOME/dotfiles/bin:$PNPM_HOME:$PATH"
 # pnpm end
-
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 ############################################################################

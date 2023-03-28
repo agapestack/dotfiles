@@ -21,16 +21,26 @@ output * bg $wallpapers/lego fill
 
 # MONITORS
 set {
-    $X390 'LG Display 0x060A Unknown'
+    $main 'eDP-1'
     $LG   'LG Electronics LG HDR 4K 301MABTJ4T49'
+    $acer1 'DP-4'
+    $acer2 'DP-5'
 }
 
-output $X390 pos 960 2160 res 1920x1080
-output $LG pos 0 0 res 3840x2160
-
 # WORKSPACES
-workspace 1 output $X390
+workspace 1 output $main
+
+
+# output $main pos 0 0 res 1920x1080
+
+output $main pos 0 1050 res 1920x1080
+output $LG pos 0 0 res 3840x2160
 workspace 2 output $LG
+
+# output $acer1 pos 0 0 res 1680x1050
+# output $acer2 pos 1680 0 res 1680x1050
+# workspace 2 output $acer1
+# workspace 3 output $acer2
 
 # ASSIGNMENTS
     assign          [app_id="alacritty"]            1
@@ -55,7 +65,7 @@ set {
     $menu wofi --show run
 }
 
-# Start your launcher
+# WOFI
 bindsym $mod+d exec $menu
 
 # Light control
@@ -68,6 +78,8 @@ bindsym $mod+XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym $mod+XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym $mod+XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
+# SCREENSHOT
+bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy
 
 # NOTIFICATIONS
 bindsym $mod+n exec "makoctl dismiss"
@@ -87,8 +99,13 @@ client.urgent           $red $red $accent $red $red
 
 
 # EXEC
+exec_always autotiling
 exec waybar
 exec mako
+    # ensure systemd/dbus is aware of env variables
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 # BINDINGS
     # Start a terminal
