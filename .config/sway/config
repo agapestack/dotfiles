@@ -28,14 +28,15 @@ set {
 }
 
 # WORKSPACES
-workspace 1 output $main
+# workspace 1 output $main
+workspace 1 output $LG
 
 
 # output $main pos 0 0 res 1920x1080
 
-output $main pos 0 1050 res 1920x1080
+# output $main pos 0 1050 res 1920x1080
 output $LG pos 0 0 res 3840x2160
-workspace 2 output $LG
+# workspace 2 output $LG
 
 # output $acer1 pos 0 0 res 1680x1050
 # output $acer2 pos 1680 0 res 1680x1050
@@ -46,6 +47,7 @@ workspace 2 output $LG
     assign          [app_id="alacritty"]            1
     assign 		    [app_id="firefox"] 		        2
     assign          [class="VSCodium"]              3
+    assign          [class="jetbrains-idea-ce"]     3
     assign          [class="obsidian"]              3
     assign 		    [class="Spotify"] 		        5
     assign          [class="discord"]               5
@@ -106,6 +108,7 @@ exec mako
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec kanshi
 
 # BINDINGS
     # Start a terminal
