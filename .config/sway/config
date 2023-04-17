@@ -28,20 +28,17 @@ set {
 }
 
 # WORKSPACES
-# workspace 1 output $main
-workspace 1 output $LG
-
+workspace 1 output $main
 
 # output $main pos 0 0 res 1920x1080
-
-# output $main pos 0 1050 res 1920x1080
-output $LG pos 0 0 res 3840x2160
+# output $LG pos 0 0 res 3840x2160
 # workspace 2 output $LG
 
-# output $acer1 pos 0 0 res 1680x1050
-# output $acer2 pos 1680 0 res 1680x1050
-# workspace 2 output $acer1
-# workspace 3 output $acer2
+output $main pos 0 1050 res 1920x1080
+output $acer1 pos 0 0 res 1680x1050
+output $acer2 pos 1680 0 res 1680x1050
+workspace 2 output $acer1
+workspace 3 output $acer2
 
 # ASSIGNMENTS
     assign          [app_id="alacritty"]            1
@@ -108,7 +105,6 @@ exec mako
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec kanshi
 
 # BINDINGS
     # Start a terminal

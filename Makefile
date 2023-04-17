@@ -51,8 +51,8 @@ install-login: ## install ly for login screen
 	sudo systemctl enable ly
 
 .PHONY: install-tools
-install-tools: ## pkg-config curl git wl-clipboard kanshi
-	pacman -S pkg-config curl git lua wl-clipboard kanshi
+install-tools: ## pkg-config curl git wl-clipboard
+	pacman -S pkg-config curl git lua wl-clipboard
 
 .PHONY: install-term
 install-term: ## zsh alacritty

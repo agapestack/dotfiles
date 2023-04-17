@@ -1,5 +1,0 @@
-profile {
-	output eDP-1 disable
-	output 'LG Electronics LG HDR 4K 301MABTJ4T49' mode 3840x2160 position 0,0 scale 2
-}
-
