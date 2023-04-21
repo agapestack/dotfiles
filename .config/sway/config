@@ -96,6 +96,9 @@ client.focused_inactive $darkgray $darkgray $accent $darkgray $darkgray
 client.unfocused        $darkgray $darkgray $accent $darkgray $darkgray
 client.urgent           $red $red $accent $red $red
 
+# Windows setup
+# Neat little indicator for XWayland apps:
+for_window [shell="xwayland"]  title_format '%title    (<i>via XWayland</i>)'
 
 # EXEC
 exec_always autotiling
