@@ -41,9 +41,9 @@ install-zellij: ## install zellij
 	cargo install --locked zellij
 	rustup update
 
-.PHONY: install-screenshot
-install-screenshot: ## install slurp & grim
-	yay -S grim slurp
+.PHONY: install-utils
+install-utils: ## install slurp & grim for screenshot, vim-youcompleteme-git
+	yay -S grim slurp vim-youcompleteme-git
 
 .PHONY: install-login
 install-login: ## install ly for login screen
@@ -52,7 +52,7 @@ install-login: ## install ly for login screen
 
 .PHONY: install-tools
 install-tools: ## pkg-config curl git wl-clipboard
-	pacman -S pkg-config curl git lua wl-clipboard
+	pacman -S pkg-config curl git lua wl-clipboard vim
 
 .PHONY: install-term
 install-term: ## zsh alacritty

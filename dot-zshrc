@@ -6,10 +6,11 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 export ZSH="$HOME/.oh-my-zsh"
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin
 export EDITOR='vim'
 export VISUAL='vim'
 export GOPATH=$HOME/go
+export GOBIN=$HOME/bin
 
 export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_QPA_PLATFORM=wayland
@@ -29,6 +30,11 @@ alias "list_monitors"=list_monitors
 alias "list_apps"="swaymsg -t get_tree | less"
 alias "list_inputs"="wev"
 alias "init_Makefile"=init_Makefile
+alias "kill_containers"=kill_containers
+
+function kill_containers {
+	docker kill $(sudo docker ps -q)
+}
 
 function list_monitors {
 	swaymsg -t get_outputs $*

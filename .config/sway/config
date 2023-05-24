@@ -29,6 +29,7 @@ set {
 
 # WORKSPACES
 workspace 1 output $main
+output $LG disable
 
 # output $main pos 0 0 res 1920x1080
 # output $LG pos 0 0 res 3840x2160
@@ -98,7 +99,7 @@ client.urgent           $red $red $accent $red $red
 
 # Windows setup
 # Neat little indicator for XWayland apps:
-for_window [shell="xwayland"]  title_format '%title    (<i>via XWayland</i>)'
+# for_window [shell="xwayland"]  title_format '%title    (<i>via XWayland</i>)'
 
 # EXEC
 exec_always autotiling
