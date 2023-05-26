@@ -1,103 +1,75 @@
 * {
-  border: none;
-  border-radius: 0;
-  font-family: RobotoMono Nerd Font;
-  font-size: 14px;
-  font-weight: 500;
+    border: none;
+    border-radius: 0;
+    font-family: mononoki Nerd Font Mono;
+    font-size: 13px;
+    min-height: 0;
 }
+
+@import "gruvbox.css";
 
 window#waybar {
-  background-color: #282828;
-  color: #ebdbb2;
-  transition-property: background-color;
-  transition-duration: 0.5s;
-  border-bottom: solid 0px #3c3836;
-}
-
-window#waybar.hidden {
-  opacity: 0.2;
+    background: rgba(40, 40, 40, 1);
+    border-bottom: 3px solid rgba(69, 133, 136, 1);
+    color: @white_b;
 }
 
 #workspaces button {
-  padding: 0 5px;
-  color: #ebdbb2;
-  border-radius: 5px;
+    padding: 0 5px;
+    background: transparent;
+    color: @white_b;
+    border-bottom: 3px solid transparent;
 }
 
 #workspaces button.focused {
-  background-color: #ebdbb2;
-  color: #282828;
-  border-bottom: none;
+    background: @blue;
+    border-bottom: 3px solid @blue;
 }
 
-#workspaces button.urgent {
-  background-color: #cc241d;
-}
-
-widget > * {
-  margin-top: 6px;
-  margin-bottom: 6px;
-}
-
-.modules-left > widget > * {
-  margin-left: 12px;
-  margin-right: 12px;
-}
-
-.modules-left > widget:first-child > * {
-  margin-left: 6px;
-}
-
-.modules-left > widget:last-child > * {
-  margin-right: 18px;
-}
-
-.modules-right > widget > * {
-  padding: 0 12px;
-  margin-left: 0;
-  margin-right: 0;
-  color: #282828;
-  background-color: #ebdbb2;
-}
-
-.modules-right > widget:first-child > * {
-  border-radius: 5px 0 0 5px;
-}
-
-.modules-right > widget:last-child > * {
-  border-radius: 0 5px 5px 0;
-  margin-right: 6px;
+#mode, #clock, #battery {
+    padding: 0 10px;
+    margin: 0 5px;
 }
 
 #mode {
-  background: transparent;
-  color: #fb4934;
+    background: @red;
+    border-bottom: 3px solid @white_b;
+}
+
+#clock {
+    background-color: @orange_b;
+    color: @white_b;
+}
+
+#battery {
+    background-color: @white_b;
+    color: @background;
+}
+
+#battery.charging {
+    color: @background;
+    background-color: @green;
 }
 
 @keyframes blink {
-  to {
-    color: #ebdbb2;
-  }
+    to {
+        background-color: @white_b;
+        color: @background;
+    }
 }
 
-#battery.critical:not(.charging) {
-  animation-name: blink;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+#idle_inhibitor, #pulseaudio, #custom-openvpn, #network, #cpu, #memory, #temperature, #backlight, #battery, #clock, #tray {
+     padding: 0 6px;
+     margin: 0 3px;
 }
 
-label:focus {
-  background-color: #282828;
-}
-
-tooltip {
-  border-radius: 5px;
-  background: #504945;
-}
-
-tooltip label {
-  color: #ebdbb2;
+#battery.warning:not(.charging) {
+    background: @red;
+    color: @white_b;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 

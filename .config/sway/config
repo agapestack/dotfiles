@@ -16,7 +16,7 @@ gaps 			            bottom	2
 gaps 			            left	2
 gaps 			            right	2
 gaps 			            inner 	5
-output * bg $wallpapers/lego fill
+output * bg $wallpapers/lego-2 fill
 
 
 # MONITORS
@@ -47,7 +47,7 @@ workspace 3 output $acer2
     assign          [class="VSCodium"]              3
     assign          [class="jetbrains-idea-ce"]     3
     assign          [class="obsidian"]              3
-    assign 		    [class="Spotify"] 		        5
+    assign 		    [class="Spotify"] 		        4
     assign          [class="discord"]               5
 
 # MAPING
@@ -88,11 +88,13 @@ bindsym $mod+Shift+n exec "makoctl dismiss -a"
 # COLORS
 set {
   $accent #ebdbb2
+  $blue #155b5e
+  $focus #eb0004
   $red #cc241d
   $darkgray #3c3836
 }
 
-client.focused          $accent $accent $darkgray $accent $accent
+client.focused          $focus $focus $darkgray $focus $focus
 client.focused_inactive $darkgray $darkgray $accent $darkgray $darkgray
 client.unfocused        $darkgray $darkgray $accent $darkgray $darkgray
 client.urgent           $red $red $accent $red $red
@@ -102,6 +104,7 @@ client.urgent           $red $red $accent $red $red
 # for_window [shell="xwayland"]  title_format '%title    (<i>via XWayland</i>)'
 
 # EXEC
+exec systemctl --user import-environment
 exec_always autotiling
 exec waybar
 exec mako
