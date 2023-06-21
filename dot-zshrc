@@ -236,3 +236,9 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 conda config --set auto_activate_base false
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
+
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin
