@@ -16,7 +16,7 @@ gaps 			            bottom	2
 gaps 			            left	2
 gaps 			            right	2
 gaps 			            inner 	5
-output * bg $wallpapers/lego-2 fill
+output * bg $wallpapers/lego fill
 
 
 # MONITORS
@@ -28,11 +28,12 @@ set {
 }
 
 # WORKSPACES
-workspace 1 output $main
+# workspace 1 output $main
 # output $LG disable
 
 output $main pos 960 2160 res 1920x1080
 output $LG pos 0 0 res 3840x2160
+workspace 1 output $main
 workspace 2 output $LG
 
 # output $main pos 0 1050 res 1920x1080
