@@ -1,75 +1,196 @@
-* {
-    border: none;
-    border-radius: 0;
-    font-family: mononoki Nerd Font Mono;
-    font-size: 13px;
-    min-height: 0;
-}
+/* =============================================================================
+ *
+ * Waybar configuration
+ *
+ * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
 
-@import "gruvbox.css";
+/* -----------------------------------------------------------------------------
+ * Keyframes
+ * -------------------------------------------------------------------------- */
 
-window#waybar {
-    background: rgba(40, 40, 40, 1);
-    border-bottom: 3px solid rgba(69, 133, 136, 1);
-    color: @white_b;
-}
+@keyframes blink-warning {
+    70% {
+        color: white;
+    }
 
-#workspaces button {
-    padding: 0 5px;
-    background: transparent;
-    color: @white_b;
-    border-bottom: 3px solid transparent;
-}
-
-#workspaces button.focused {
-    background: @blue;
-    border-bottom: 3px solid @blue;
-}
-
-#mode, #clock, #battery {
-    padding: 0 10px;
-    margin: 0 5px;
-}
-
-#mode {
-    background: @red;
-    border-bottom: 3px solid @white_b;
-}
-
-#clock {
-    background-color: @orange_b;
-    color: @white_b;
-}
-
-#battery {
-    background-color: @white_b;
-    color: @background;
-}
-
-#battery.charging {
-    color: @background;
-    background-color: @green;
-}
-
-@keyframes blink {
     to {
-        background-color: @white_b;
-        color: @background;
+        color: white;
+        background-color: orange;
     }
 }
 
-#idle_inhibitor, #pulseaudio, #custom-openvpn, #network, #cpu, #memory, #temperature, #backlight, #battery, #clock, #tray {
-     padding: 0 6px;
-     margin: 0 3px;
+@keyframes blink-critical {
+    70% {
+      color: white;
+    }
+
+    to {
+        color: white;
+        background-color: red;
+    }
 }
 
-#battery.warning:not(.charging) {
-    background: @red;
-    color: @white_b;
-    animation-name: blink;
-    animation-duration: 0.5s;
+
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* The whole bar */
+#waybar {
+    background: #323232;
+    opacity: 0.5;
+    color: white;
+    font-family: Cantarell, Noto Sans, sans-serif;
+    font-size: 14px;
+}
+
+/* Each module */
+#battery,
+#clock,
+#cpu,
+#custom-keyboard-layout,
+#memory,
+#mode,
+#network,
+#pulseaudio,
+#temperature,
+#tray {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Module styles
+ * -------------------------------------------------------------------------- */
+
+#battery {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+}
+
+#battery.warning {
+    color: orange;
+}
+
+#battery.critical {
+    color: red;
+}
+
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
+
+#battery.critical.discharging {
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+#clock {
+    font-weight: bold;
+}
+
+#cpu {
+  /* No styles */
+}
+
+#cpu.warning {
+    color: orange;
+}
+
+#cpu.critical {
+    color: red;
+}
+
+#memory {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#memory.warning {
+    color: orange;
+}
+
+#memory.critical {
+    color: red;
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+#mode {
+    background: #64727D;
+    border-top: 2px solid white;
+    /* To compensate for the top border and still have vertical centering */
+    padding-bottom: 2px;
+}
+
+#network {
+    /* No styles */
+}
+
+#network.disconnected {
+    color: orange;
+}
+
+#pulseaudio {
+    /* No styles */
+}
+
+#pulseaudio.muted {
+    /* No styles */
+}
+
+#custom-spotify {
+    color: rgb(102, 220, 105);
+}
+
+#temperature {
+    /* No styles */
+}
+
+#temperature.critical {
+    color: red;
+}
+
+#tray {
+    /* No styles */
+}
+
+#window {
+    font-weight: bold;
+}
+
+#workspaces button {
+    border-top: 2px solid transparent;
+    /* To compensate for the top border and still have vertical centering */
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #888888;
+}
+
+#workspaces button.focused {
+    border-color: #4c7899;
+    color: white;
+    background-color: #285577;
+}
+
+#workspaces button.urgent {
+    border-color: #c9545d;
+    color: #c9545d;
 }
 
