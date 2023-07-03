@@ -20,16 +20,16 @@
 
     "modules-left": [
         "sway/workspaces",
-        "sway/mode"
-    ],
-    "modules-center": [
-        "sway/window"
-    ],
-    "modules-right": [
-        "network",
+        "sway/mode",
         "memory",
         "cpu",
         "temperature",
+        "network",
+    ],
+    "modules-center": [
+        "sway/window",
+    ],
+    "modules-right": [
         "custom/keyboard-layout",
         "battery",
         "tray",
@@ -49,7 +49,7 @@
             "critical": 15
         },
         // Connected to AC
-        "format": "  {icon}  {capacity}%", // Icon: bolt
+        "format": " {icon}     {capacity}%", // Icon: bolt
         // Not connected to AC
         "format-discharging": "{icon}",
         "format-icons": [
