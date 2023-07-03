@@ -63,7 +63,7 @@ set {
     $right l
 
     $term alacritty -o font.size=12
-    $menu wofi --show run
+    $menu wofi --show drun -H 500 -W 800
 }
 
 # WOFI
