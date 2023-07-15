@@ -28,7 +28,7 @@ set {
 }
 
 # WORKSPACES
-workspace 1 output $main
+# workspace 1 output $main
 # output $LG disable
 
 output $main pos 0 1050 res 1920x1080
