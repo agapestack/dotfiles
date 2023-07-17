@@ -18,6 +18,14 @@ gaps 			            right	2
 # gaps 			            inner 	2
 output * bg $wallpapers/nature-1 fill
 
+input "Logitech G305" {
+    left_handed disabled
+    tap enabled
+    natural_scroll disabled
+    dwt enabled
+    accel_profile "flat" # disable mouse acceleration (enabled by default; to set it manually, use "adaptive" instead of "flat")
+    pointer_accel 0.3 # set mouse sensitivity (between -1 and 1)
+}
 
 # MONITORS
 set {
@@ -31,17 +39,17 @@ set {
 # workspace 1 output $main
 # output $LG disable
 
-output $main pos 0 1050 res 1920x1080
-output $acer1 pos 0 0 res 1680x1050
-output $acer2 pos 1680 0 res 1680x1050
-workspace 2 output $acer1
-workspace 3 output $acer2
+# output $main pos 0 1050 res 1920x1080
+# output $acer1 pos 0 0 res 1680x1050
+# output $acer2 pos 1680 0 res 1680x1050
+# workspace 2 output $acer1
+# workspace 3 output $acer2
 
 
-# output $main pos 960 2160 res 1920x1080
-# output $LG pos 0 0 res 3840x2160
-# workspace 1 output $main
-# workspace 2 output $LG
+output $main pos 960 2160 res 1920x1080
+output $LG pos 0 0 res 3840x2160
+workspace 1 output $main
+workspace 2 output $LG
 
 # output $main pos 0 1050 res 1920x1080
 # output $acer1 pos 0 0 res 1680x1050
