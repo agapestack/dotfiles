@@ -23,7 +23,6 @@ export QT_SCALE_FACTOR=1.5
 export PNPM_HOME="/home/agape/.local/share/pnpm"
 export PATH="$HOME/dotfiles/bin:$PNPM_HOME:$PATH"
 # pnpm end
-export _JAVA_AWT_WM_NONREPARENTING=1
 
 alias "vi"="vim"
 alias "list_monitors"=list_monitors
@@ -219,26 +218,5 @@ alias dsp="docker system prune --all"
 alias dsr=dsr-fn
 ############################################################################
 
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/agape/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/agape/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/agape/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/agape/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-conda config --set auto_activate_base false
-
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
-
-# add Pulumi to the PATH
-export PATH=$PATH:$HOME/.pulumi/bin
