@@ -30,6 +30,7 @@
         "sway/window",
     ],
     "modules-right": [
+	"pulseaudio",
         "custom/keyboard-layout",
         "battery",
         "tray",
