@@ -50,13 +50,13 @@ install-file-manager: ## install thunar, imv for image, vlc for videos
 	pacman -S thunar imv vlc
 
 install-sway: ## swayfx waybar swaylock-effects-git swayidle swaybg wev xorg-xwaylang brightnessctl autotiling
-	yay -S swayfx waybar swaylock-effects-git swayidle swaybg mako xorg-xwayland brightnessctl wev autotiling ttf-jetbrains-mono
-
+	yay -S swayfx waybar swaylock-effects-git swayidle swaybg mako xorg-xwayland brightnessctl wev autotiling
 install-addons:
 	pacman -S neofetch mpd
 
 install-font: ## adobe-ro font-awesome roboto-mono-nerd
-	pacman -S adobe-source-code-pro-fonts otf-font-awesome ttf-font-awesome ttf-roboto-mono-nerd
+	pacman -S adobe-source-code-pro-fonts otf-font-awesome ttf-font-awesome ttf-roboto-mono-nerd ttf-jetbrains-mono
+
 
 ## THEME
 install-powerlevel: ## install powerlevel10K
