@@ -57,8 +57,7 @@ install-addons:
 	pacman -S neofetch mpd
 
 install-pdfutils:
-# TODO
-
+	pacman -S zathura zahtura-pdf-mupdf
 
 ## THEME
 install-powerlevel: ## install powerlevel10K
