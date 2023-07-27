@@ -5,7 +5,7 @@ WHITE  := $(shell tput -Txterm setaf 7)
 CYAN   := $(shell tput -Txterm setaf 6)
 RESET  := $(shell tput -Txterm sgr0)
 
-.PHONY: link install-theme install-yay install-asdf install-rust install-zellij install-screenshot install-login install-tools install-fonts install-term etc-env uninstall-src install-file-manager install-powerlevel install-sway install-addons install-zathura
+.PHONY: link install-theme install-yay install-asdf install-rust install-zellij install-screenshot install-login install-tools install-fonts install-term etc-env uninstall-src install-file-manager install-powerlevel install-sway install-addons install-pdfutils
 
 all: help
 
@@ -56,9 +56,8 @@ install-sway: ## swayfx waybar swaylock-effects-git swayidle swaybg wev xorg-xwa
 install-addons:
 	pacman -S neofetch mpd
 
-install-zathura:
-	pacman -S zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps 
-
+install-pdfutils:
+# TODO
 
 
 ## THEME
