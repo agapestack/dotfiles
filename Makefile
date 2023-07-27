@@ -5,7 +5,7 @@ WHITE  := $(shell tput -Txterm setaf 7)
 CYAN   := $(shell tput -Txterm setaf 6)
 RESET  := $(shell tput -Txterm sgr0)
 
-.PHONY: link install-theme install-yay install-asdf install-rust install-zellij install-utils install-login install-tools install-fonts install-term etc-env uninstall-src install-file-manager install-powerlevel install-sway install-addons
+.PHONY: link install-theme install-yay install-asdf install-rust install-zellij install-screenshot install-login install-tools install-fonts install-term etc-env uninstall-src install-file-manager install-powerlevel install-sway install-addons install-zathura
 
 all: help
 
@@ -33,8 +33,8 @@ install-zellij: ## install zellij
 	cargo install --locked zellij
 	rustup update
 
-install-utils: ## install slurp & grim for screenshot, vim-youcompleteme-git
-	yay -S grim slurp vim-youcompleteme-git
+install-screenshot: ## install slurp & grim for screenshot
+	yay -S grim slurp
 
 install-login: ## install ly for login screen
 	yay -S ly
@@ -51,16 +51,22 @@ install-file-manager: ## install thunar, imv for image, vlc for videos
 
 install-sway: ## swayfx waybar swaylock-effects-git swayidle swaybg wev xorg-xwaylang brightnessctl autotiling
 	yay -S swayfx waybar swaylock-effects-git swayidle swaybg mako xorg-xwayland brightnessctl wev autotiling
+
+## UTILS
 install-addons:
 	pacman -S neofetch mpd
 
-install-font: ## adobe-ro font-awesome roboto-mono-nerd
-	pacman -S adobe-source-code-pro-fonts otf-font-awesome ttf-font-awesome ttf-roboto-mono-nerd ttf-jetbrains-mono
+install-zathura:
+	pacman -S zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps 
+
 
 
 ## THEME
 install-powerlevel: ## install powerlevel10K
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
+
+install-font: ## adobe-ro font-awesome roboto-mono-nerd
+	pacman -S adobe-source-code-pro-fonts otf-font-awesome ttf-font-awesome ttf-roboto-mono-nerd ttf-jetbrains-mono
 
 ## UNINSTALL
 uninstall-src: ## remove $HOME/dotfiles/src folder
