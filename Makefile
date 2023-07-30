@@ -41,7 +41,7 @@ install-login: ## install ly for login screen
 	sudo systemctl enable ly
 
 install-tools: ## pkg-config curl git wl-clipboard
-	pacman -S pkg-config curl git lua wl-clipboard vim
+	pacman -S pkg-config curl git lua wl-clipboard neovim xsel
 
 install-term: ## zsh alacritty
 	yay -S zsh alacritty

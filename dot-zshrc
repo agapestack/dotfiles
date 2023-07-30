@@ -31,6 +31,7 @@ export PNPM_HOME="/home/agape/.local/share/pnpm"
 export PATH="$HOME/dotfiles/bin:$PNPM_HOME:$PATH"
 # pnpm end
 
+alias "vim"="nvim"
 alias "vi"="vim"
 alias "list_monitors"=list_monitors
 alias "list_apps"="swaymsg -t get_tree | less"
