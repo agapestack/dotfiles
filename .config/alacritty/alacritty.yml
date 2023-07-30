@@ -22,28 +22,28 @@ font:
 
   size: 12
 
-# Colors (Gruvbox Material Dark Medium)
+# https://gist.github.com/sainnhe/e5c4512d5bcfcb46afd493beb86223c6
 colors:
   primary:
-    background: '0x282828'
-    foreground: '0xdfbf8e'
+    background: "0x2d2a2e"
+    foreground: "0xe3e1e4"
 
   normal:
-    black:   '0x665c54'
-    red:     '0xea6962'
-    green:   '0xa9b665'
-    yellow:  '0xe78a4e'
-    blue:    '0x7daea3'
-    magenta: '0xd3869b'
-    cyan:    '0x89b482'
-    white:   '0xdfbf8e'
+    black: "0x1a181a"
+    red: "0xf85e84"
+    green: "0x9ecd6f"
+    yellow: "0xe5c463"
+    blue: "0x7accd7"
+    magenta: "0xab9df2"
+    cyan: "0xef9062"
+    white: "0xe3e1e4"
 
   bright:
-    black:   '0x928374'
-    red:     '0xea6962'
-    green:   '0xa9b665'
-    yellow:  '0xe3a84e'
-    blue:    '0x7daea3'
-    magenta: '0xd3869b'
-    cyan:    '0x89b482'
-    white:   '0xdfbf8e'
+    black: "0x848089"
+    red: "0xf85e84"
+    green: "0x9ecd6f"
+    yellow: "0xe5c463"
+    blue: "0x7accd7"
+    magenta: "0xab9df2"
+    cyan: "0xef9062"
+    white: "0xe3e1e4"

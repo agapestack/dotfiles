@@ -15,18 +15,31 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   -- PACKER
   use 'wbthomason/packer.nvim'
+  -- THEME sonokai
+  use('sainnhe/sonokai')
+  -- TRAILING WHITESPACE
+  use('bronson/vim-trailing-whitespace')
+  -- VIM COMMENTARY
+  use('tpope/vim-commentary')
+  use('airblade/vim-gitgutter')
+
+  -- TREESITTER
+  use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})
   -- TELESCOPE
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.2',
-    -- or                          , branch = '0.1.x',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
-   -- THEME jellybeans
-   use({ 'nanotech/jellybeans.vim' })
-   -- TREESITTER
-   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})
-   -- TRAILING WHITESPACE
-   use('bronson/vim-trailing-whitespace')
+  -- LUALINE
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
+  require'lualine'.setup {
+    options = {
+      theme = 'sonokai'
+    }
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   if packer_bootstrap then
