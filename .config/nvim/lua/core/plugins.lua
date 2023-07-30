@@ -30,16 +30,17 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim', tag = '0.1.2',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
-  -- LUALINE
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-  }
-  require'lualine'.setup {
-    options = {
-      theme = 'sonokai'
-    }
-  }
+
+  -- TOGGLETERM
+  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    require("toggleterm").setup()
+  end}
+
+  -- BARBAR
+  use 'nvim-tree/nvim-web-devicons' -- OPTIONAL: for file icons
+  use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
+  use 'romgrk/barbar.nvim'
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   if packer_bootstrap then
