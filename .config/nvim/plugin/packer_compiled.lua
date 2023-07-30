@@ -98,6 +98,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/agape/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["vim-trailing-whitespace"] = {
+    loaded = true,
+    path = "/home/agape/.local/share/nvim/site/pack/packer/start/vim-trailing-whitespace",
+    url = "https://github.com/bronson/vim-trailing-whitespace"
   }
 }
 

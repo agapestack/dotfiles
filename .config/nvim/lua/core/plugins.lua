@@ -25,6 +25,8 @@ return require('packer').startup(function(use)
    use({ 'nanotech/jellybeans.vim' })
    -- TREESITTER
    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})
+   -- TRAILING WHITESPACE
+   use('bronson/vim-trailing-whitespace')
 
   -- Automatically set up your configuration after cloning packer.nvim
   if packer_bootstrap then
