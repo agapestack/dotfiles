@@ -16,7 +16,7 @@ gaps 			            bottom	1
 gaps 			            left	2
 gaps 			            right	2
 # gaps 			            inner 	2
-output * bg $wallpapers/nature-1 fill
+output * bg $wallpapers/one-piece fill
 
 input "1133:16500:Logitech_G305" {
     left_handed disabled
