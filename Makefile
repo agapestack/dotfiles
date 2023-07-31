@@ -5,7 +5,7 @@ WHITE  := $(shell tput -Txterm setaf 7)
 CYAN   := $(shell tput -Txterm setaf 6)
 RESET  := $(shell tput -Txterm sgr0)
 
-.PHONY: link install-theme install-yay install-asdf install-rust install-zellij install-screenshot install-login install-tools install-fonts install-term etc-env uninstall-src install-file-manager install-powerlevel install-sway install-addons install-pdfutils
+.PHONY: link install-theme install-yay install-asdf install-rust install-zellij install-screenshot install-login install-tools install-fonts install-term etc-env uninstall-src install-file-manager install-powerlevel install-sway install-addons install-pdfutils install-nvim
 
 all: help
 
@@ -41,7 +41,10 @@ install-login: ## install ly for login screen
 	sudo systemctl enable ly
 
 install-tools: ## pkg-config curl git wl-clipboard
-	pacman -S pkg-config curl git lua wl-clipboard neovim xsel
+	pacman -S pkg-config curl git lua wl-clipboard
+
+install-nvim: ## install neovim
+	pacman -S neovim xsel
 
 install-term: ## zsh alacritty
 	yay -S zsh alacritty

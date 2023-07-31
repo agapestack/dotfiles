@@ -2,3 +2,4 @@ dot-vim/plugged
 src/
 asdf/
 etc/
+.config/nvim/plugin
