@@ -44,7 +44,7 @@ install-tools: ## pkg-config curl git wl-clipboard
 	pacman -S pkg-config curl git lua wl-clipboard
 
 install-nvim: ## install neovim
-	pacman -S neovim xsel
+	pacman -S neovim xsel ripgrep
 
 install-term: ## zsh alacritty
 	yay -S zsh alacritty
