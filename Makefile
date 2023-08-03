@@ -53,7 +53,7 @@ install-file-manager: ## install thunar, imv for image, vlc for videos
 	pacman -S thunar imv vlc
 
 install-sway: ## swayfx waybar swaylock-effects-git swayidle swaybg wev xorg-xwaylang brightnessctl autotiling
-	yay -S swayfx waybar swaylock-effects-git swayidle swaybg mako xorg-xwayland brightnessctl wev autotiling
+	yay -S swayfx waybar swaylock-effects-git swayidle swaybg mako xorg-xwayland brightnessctl wev autotiling wdisplays-git
 
 ## UTILS
 install-addons:

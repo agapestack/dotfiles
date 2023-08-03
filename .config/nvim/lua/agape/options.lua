@@ -18,3 +18,4 @@ vim.opt.number = true
 
 vim.opt.guifont = "RobotoMono Nerd Font:h12"
 
+vim.opt.clipboard = 'unnamedplus'

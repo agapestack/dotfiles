@@ -18,15 +18,6 @@ gaps 			            right	2
 # gaps 			            inner 	2
 output * bg $wallpapers/one-piece fill
 
-input "1133:16500:Logitech_G305" {
-    left_handed disabled
-    tap enabled
-    natural_scroll disabled
-    dwt enabled
-    accel_profile "flat"
-    pointer_accel 0.1 # set mouse sensitivity (between -1 and 1)
-}
-
 # MONITORS
 set {
     $main 'eDP-1'
@@ -37,24 +28,10 @@ set {
 
 # WORKSPACES
 # workspace 1 output $main
-# output $LG disable
-
-# output $main pos 0 1050 res 1920x1080
-# output $acer1 pos 0 0 res 1680x1050
-# output $acer2 pos 1680 0 res 1680x1050
 # workspace 2 output $acer1
 # workspace 3 output $acer2
-
-output $main pos 960 2160 res 1920x1080
-output $LG pos 0 0 res 3840x2160
 workspace 1 output $main
 workspace 2 output $LG
-
-# output $main pos 0 1050 res 1920x1080
-# output $acer1 pos 0 0 res 1680x1050
-# output $acer2 pos 1680 0 res 1680x1050
-# workspace 2 output $acer1
-# workspace 3 output $acer2
 
 # ASSIGNMENTS
     # assign          [app_id="alacritty"]            1
