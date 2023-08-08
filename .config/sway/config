@@ -27,11 +27,12 @@ set {
 }
 
 # WORKSPACES
-# workspace 1 output $main
-# workspace 2 output $acer1
-# workspace 3 output $acer2
 workspace 1 output $main
-workspace 2 output $LG
+workspace 2 output $acer1
+workspace 3 output $acer2
+
+# workspace 1 output $main
+# workspace 2 output $LG
 
 # ASSIGNMENTS
     # assign          [app_id="alacritty"]            1
@@ -45,8 +46,8 @@ workspace 2 output $LG
 # MAPING
 set {
   # Mod1 == Alt    Mod4 == Super
-    $mod Mod1
-    $mod2 Mod4
+    $mod Mod4
+    $mod2 Mod1
 
     $left h
     $down j
