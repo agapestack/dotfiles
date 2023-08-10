@@ -11,19 +11,19 @@ set $idle_path ~/dotfiles/scripts/swayidle.sh
 # STYLING
 font pango:                 "RobotoMono Nerd Font" Regular 14
 default_border 		        pixel 	2
-gaps 			            top	    2
+gaps 			            top	    1
 gaps 			            bottom	1
-gaps 			            left	2
-gaps 			            right	2
-# gaps 			            inner 	2
+gaps 			            left	1
+gaps 			            right	1
+#gaps 			            inner 	2
 output * bg $wallpapers/one-piece fill
 
 # MONITORS
 set {
     $main 'eDP-1'
-    $LG   'LG Electronics LG HDR 4K 301MABTJ4T49'
-    $acer1 'DP-4'
-    $acer2 'DP-5'
+        $LG   'LG Electronics LG HDR 4K 301MABTJ4T49'
+        $acer1 'DP-4'
+        $acer2 'DP-5'
 }
 
 # WORKSPACES
@@ -35,27 +35,27 @@ workspace 3 output $acer2
 # workspace 2 output $LG
 
 # ASSIGNMENTS
-    # assign          [app_id="alacritty"]            1
-    # assign 		    [app_id="firefox"] 		        2
-    # assign          [class="VSCodium"]              3
-    # assign          [class="jetbrains-idea-ce"]     3
-    # assign          [class="obsidian"]              4
-    # assign 		    [class="Spotify"] 		        5
-    # assign          [class="discord"]               5
+# assign          [app_id="alacritty"]            1
+# assign 		    [app_id="firefox"] 		        2
+# assign          [class="VSCodium"]              3
+# assign          [class="jetbrains-idea-ce"]     3
+# assign          [class="obsidian"]              4
+# assign 		    [class="Spotify"] 		        5
+# assign          [class="discord"]               5
 
 # MAPING
 set {
-  # Mod1 == Alt    Mod4 == Super
+# Mod1 == Alt    Mod4 == Super
     $mod Mod4
-    $mod2 Mod1
+        $mod2 Mod1
 
-    $left h
-    $down j
-    $up k
-    $right l
+        $left h
+        $down j
+        $up k
+        $right l
 
-    $term alacritty -o font.size=12
-    $menu wofi --show drun -H 500 -W 800
+        $term alacritty -o font.size=12
+        $menu wofi --show drun -H 500 -W 800
 }
 
 # WOFI
@@ -79,18 +79,14 @@ bindsym $mod+n exec "makoctl dismiss"
 bindsym $mod+Shift+n exec "makoctl dismiss -a"
 
 # COLORS
-# set {
-#   $accent #ebdbb2
-#   $blue #155b5e
-#   $focus #eb0004
-#   $red #cc241d
-#   $darkgray #3c3836
-# }
-
-# client.focused          $focus $focus $darkgray $focus $focus
-# client.focused_inactive $darkgray $darkgray $accent $darkgray $darkgray
-# client.unfocused        $darkgray $darkgray $accent $darkgray $darkgray
-# client.urgent           $red $red $accent $red $red
+set {
+   $accent #ebdbb2
+   $blue #155b5e
+   $focus #eb0004
+   $red #cc241d
+   $darkgray #3c3836
+}
+client.focused          $focus $focus $focus $focus $focus
 
 # Windows setup
 # Neat little indicator for XWayland apps:
@@ -101,7 +97,7 @@ exec systemctl --user import-environment
 exec_always autotiling
 exec waybar
 exec mako
-    # ensure systemd/dbus is aware of env variables
+# ensure systemd/dbus is aware of env variables
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
 #     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
