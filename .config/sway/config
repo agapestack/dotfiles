@@ -10,7 +10,7 @@ set $idle_path ~/dotfiles/scripts/swayidle.sh
 
 # STYLING
 font pango:                 "RobotoMono Nerd Font" Regular 14
-default_border 		        pixel 	2
+default_border 		        pixel 	1
 gaps 			            top	    1
 gaps 			            bottom	1
 gaps 			            left	1
@@ -80,11 +80,7 @@ bindsym $mod+Shift+n exec "makoctl dismiss -a"
 
 # COLORS
 set {
-   $accent #ebdbb2
-   $blue #155b5e
-   $focus #eb0004
-   $red #cc241d
-   $darkgray #3c3836
+   $focus #FFFFFF
 }
 client.focused          $focus $focus $focus $focus $focus
 
