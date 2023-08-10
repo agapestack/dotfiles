@@ -14,8 +14,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 export ZSH="$HOME/.oh-my-zsh"
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin
-export EDITOR='vim'
-export VISUAL='vim'
+export EDITOR='nvim'
+export VISUAL='nvim'
 export GOPATH=$HOME/go
 export GOBIN=$HOME/bin
 
