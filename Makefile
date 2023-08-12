@@ -5,7 +5,7 @@ WHITE  := $(shell tput -Txterm setaf 7)
 CYAN   := $(shell tput -Txterm setaf 6)
 RESET  := $(shell tput -Txterm sgr0)
 
-.PHONY: link install-theme install-yay install-asdf install-rust install-zellij install-screenshot install-login install-tools install-fonts install-term etc-env uninstall-src install-file-manager install-powerlevel install-sway install-addons install-pdfutils install-nvim install-bluetooth install-latex
+.PHONY: link install-theme install-yay install-asdf install-rust install-zellij install-screenshot install-login install-tools install-fonts install-term etc-env uninstall-src install-file-manager install-powerlevel install-sway install-addons install-pdfutils install-nvim install-latex
 
 all: help
 
@@ -55,10 +55,6 @@ install-file-manager: ## install thunar, imv for image, vlc for videos
 install-sway: ## swayfx waybar swaylock-effects-git swayidle swaybg wev xorg-xwaylang brightnessctl autotiling
 	yay -S swayfx waybar swaylock-effects-git swayidle swaybg mako xorg-xwayland brightnessctl wev autotiling wdisplays-git
 
-install-bluetooth: ## bluez bluez-utils blueman
-	sudo pacman -S bluez bluez-utils blueman
-	sudo pacman -S pipewire pipewire-alsa pipewire-pulse pipewire-jack
-	sudo systemctl --user enable --now pipewire pipewire-pulse pipewire-media-session
 ## UTILS
 install-addons: ## neofetch mpd
 	pacman -S neofetch mpd
