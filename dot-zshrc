@@ -31,6 +31,7 @@ export PNPM_HOME="/home/agape/.local/share/pnpm"
 export PATH="$HOME/dotfiles/bin:$PNPM_HOME:$PATH"
 # pnpm end
 
+alias "sudo"="sudo "
 alias "vim"="nvim"
 alias "vi"="vim"
 alias "list_monitors"=list_monitors
