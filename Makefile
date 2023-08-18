@@ -5,7 +5,7 @@ WHITE  := $(shell tput -Txterm setaf 7)
 CYAN   := $(shell tput -Txterm setaf 6)
 RESET  := $(shell tput -Txterm sgr0)
 
-.PHONY: link install-theme install-yay install-asdf install-rust install-zellij install-screenshot install-login install-tools install-fonts install-term etc-env uninstall-src install-file-manager install-powerlevel install-sway install-addons install-pdfutils install-nvim install-latex
+.PHONY: link install-theme install-yay install-asdf install-rust install-zellij install-screenshot install-login install-tools install-fonts install-term etc-env uninstall-src install-file-manager install-powerlevel install-sway install-addons install-pdfutils install-nvim install-latex install-audio
 
 all: help
 
@@ -65,8 +65,8 @@ install-pdfutils: ## zathura zathura-pdf-mupdf
 install-latex: ## texlive-binextra (latexmk) texlive
 	pacman -S texlive-binextra texlive
 
-install-sound: ## pipewire helvum
-	pacman -S pipewire helvum
+install-audio: ## pipewire helvum
+	pacman -S pipewire pipewire-alsa pipewire-pulse helvum
 
 ## THEME
 install-powerlevel: ## install powerlevel10K
