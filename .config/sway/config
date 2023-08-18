@@ -36,7 +36,7 @@ set {
         $up k
         $right l
 
-        $term foot -o font.size=12
+        $term foot
         $menu wofi --show drun -H 500 -W 800
 }
 

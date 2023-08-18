@@ -46,8 +46,8 @@ install-tools: ## pkg-config curl git wl-clipboard
 install-nvim: ## install neovim
 	pacman -S neovim xsel ripgrep
 
-install-term: ## zsh alacritty
-	yay -S zsh alacritty
+install-term: ## zsh zsh-completions foot
+	yay -S zsh foot zsh-completions
 
 install-file-manager: ## install thunar, imv for image, vlc for videos
 	pacman -S thunar imv vlc
