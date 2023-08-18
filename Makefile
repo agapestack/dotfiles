@@ -52,11 +52,11 @@ install-term: ## zsh zsh-completions foot tmux
 	yay -S zsh foot zsh-completions tmux
 
 install-file-manager: ## install thunar, imv for image, vlc for videos
-	pacman -S thunar imv vlc
+	sudo pacman -S thunar imv vlc swayimg
+	yay -S dragon-drop
 
 install-sway: ## swayfx waybar swaylock-effects-git swayidle swaybg wev xorg-xwaylang brightnessctl autotiling mako mpv swayimg
-	yay -S swayfx waybar swaylock-effects-git swayidle swaybg mako mpv xorg-xwayland brightnessctl wev autotiling wdisplays-git swayimg
-
+	yay -S swayfx waybar swaylock-effects-git swayidle swaybg mako mpv xorg-xwayland brightnessctl wev autotiling wdisplays-git
 ## UTILS
 install-yubikey: ## yubikey-manager libfido2
 	sudo pacman -S yubikey-manager libfido2
