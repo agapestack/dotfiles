@@ -5,6 +5,8 @@ WHITE  := $(shell tput -Txterm setaf 7)
 CYAN   := $(shell tput -Txterm setaf 6)
 RESET  := $(shell tput -Txterm sgr0)
 
+USERNAME="agape"
+
 .PHONY: link install-theme install-yay install-asdf install-rust install-zellij install-screenshot install-login install-tools install-fonts install-term etc-env uninstall-src install-file-manager install-powerlevel install-sway install-addons install-pdfutils install-nvim install-latex install-audio install-yubikey
 
 all: help
@@ -36,9 +38,9 @@ install-zellij: ## install zellij
 install-screenshot: ## install slurp & grim for screenshot
 	yay -S grim slurp
 
-install-login: ## install ly for login screen
-	yay -S ly
-	sudo systemctl enable ly
+install-login: ## install login manager: lemurs
+	yay -S lemurs-git
+	sudo systemctl enable lemurs.service
 
 install-tools: ## pkg-config curl git wl-clipboard
 	pacman -S pkg-config curl git lua wl-clipboard
@@ -57,9 +59,7 @@ install-sway: ## swayfx waybar swaylock-effects-git swayidle swaybg wev xorg-xwa
 
 ## UTILS
 install-yubikey: ## yubikey-manager libfido2
-	sudo pacman -S yubikey-manager libfido2 yubikey-touch-detector
-	systemctl --user daemon-reload
-	systemctl --user enable --now yubikey-touch-detector.service
+	sudo pacman -S yubikey-manager libfido2
 
 install-addons: ## neofetch
 	pacman -S neofetch
@@ -85,8 +85,9 @@ uninstall-src: ## remove $HOME/dotfiles/src folder
 	rm -rf "${HOME}/dotfiles/src"
 
 ## OTHERS
-etc-env: ## overwrite environment file with etc/environment
-	cat etc/environment > /etc/environment
+etc-env: ## overwrite corresponding files in /etc by ./etc
+	cp -r -f /home/${USERNAME}/dotfiles/etc/** /etc
+	sudo chmod +x /etc/lemurs/wayland/sway
 
 ## HELP
 help: ## Show this help.
