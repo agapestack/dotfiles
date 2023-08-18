@@ -52,8 +52,8 @@ install-term: ## zsh alacritty
 install-file-manager: ## install thunar, imv for image, vlc for videos
 	pacman -S thunar imv vlc
 
-install-sway: ## swayfx waybar swaylock-effects-git swayidle swaybg wev xorg-xwaylang brightnessctl autotiling
-	yay -S swayfx waybar swaylock-effects-git swayidle swaybg mako xorg-xwayland brightnessctl wev autotiling wdisplays-git
+install-sway: ## swayfx waybar swaylock-effects-git swayidle swaybg wev xorg-xwaylang brightnessctl autotiling mako mpv
+	yay -S swayfx waybar swaylock-effects-git swayidle swaybg mako mpv xorg-xwayland brightnessctl wev autotiling wdisplays-git
 
 ## UTILS
 install-addons: ## neofetch mpd
@@ -64,6 +64,9 @@ install-pdfutils: ## zathura zathura-pdf-mupdf
 
 install-latex: ## texlive-binextra (latexmk) texlive
 	pacman -S texlive-binextra texlive
+
+install-sound: ## pipewire helvum
+	pacman -S pipewire helvum
 
 ## THEME
 install-powerlevel: ## install powerlevel10K

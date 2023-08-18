@@ -18,30 +18,12 @@ gaps 			            right	1
 #gaps 			            inner 	2
 output * bg $wallpapers/one-piece fill
 
-# MONITORS
-set {
-    $main 'eDP-1'
-        $LG   'LG Electronics LG HDR 4K 301MABTJ4T49'
-        $acer1 'DP-4'
-        $acer2 'DP-5'
-}
-
-# WORKSPACES
-workspace 1 output $main
-workspace 2 output $acer1
-workspace 3 output $acer2
-
-# workspace 1 output $main
-# workspace 2 output $LG
-
 # ASSIGNMENTS
-# assign          [app_id="alacritty"]            1
 # assign 		    [app_id="firefox"] 		        2
-# assign          [class="VSCodium"]              3
-# assign          [class="jetbrains-idea-ce"]     3
-# assign          [class="obsidian"]              4
+# assign            [class="VSCodium"]              3
+# assign            [class="obsidian"]              4
 # assign 		    [class="Spotify"] 		        5
-# assign          [class="discord"]               5
+# assign            [class="discord"]               5
 
 # MAPING
 set {
@@ -54,7 +36,7 @@ set {
         $up k
         $right l
 
-        $term alacritty -o font.size=12
+        $term foot -o font.size=12
         $menu wofi --show drun -H 500 -W 800
 }
 
@@ -92,7 +74,7 @@ client.focused          $focus $focus $focus $focus $focus
 exec systemctl --user import-environment
 exec_always autotiling
 exec waybar
-exec mako
+
 # ensure systemd/dbus is aware of env variables
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
