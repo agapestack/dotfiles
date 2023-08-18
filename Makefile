@@ -57,7 +57,9 @@ install-sway: ## swayfx waybar swaylock-effects-git swayidle swaybg wev xorg-xwa
 
 ## UTILS
 install-yubikey: ## yubikey-manager libfido2
-	pacman -S yubikey-manager libfido2 yubikey-touch-detector
+	sudo pacman -S yubikey-manager libfido2 yubikey-touch-detector
+	systemctl --user daemon-reload
+	systemctl --user enable --now yubikey-touch-detector.service
 
 install-addons: ## neofetch
 	pacman -S neofetch
