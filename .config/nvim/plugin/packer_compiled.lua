@@ -125,6 +125,11 @@ _G.packer_plugins = {
     path = "/home/agape/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-tmux-navigation"] = {
+    loaded = true,
+    path = "/home/agape/.local/share/nvim/site/pack/packer/start/nvim-tmux-navigation",
+    url = "https://github.com/alexghergh/nvim-tmux-navigation"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/agape/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
