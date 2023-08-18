@@ -63,6 +63,9 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- NVIM TMUX
+  use { "alexghergh/nvim-tmux-navigation" }
+
   -- Automatically set up your configuration after cloning packer.nvim
   if packer_bootstrap then
     require('packer').sync()
