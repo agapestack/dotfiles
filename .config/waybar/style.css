@@ -68,6 +68,7 @@
 #wireplumber,
 #bluetooth,
 #temperature {
+    font-size: .9em;
     padding: 2px 8px 2px 8px;
     margin: 4px 8px 4px 8px;
     border-radius: 4px;
@@ -78,7 +79,7 @@
  * -------------------------------------------------------------------------- */
 #window {
     font-weight: bold;
-    font-size: 1em;
+    font-size: .8em;
     border: 1px solid white;
     padding: 2px 8px 2px 8px;
     margin: 4px 0px 4px 0px;
@@ -87,7 +88,6 @@
 
 #workspaces button {
     border-top: 2px solid transparent;
-    /* To compensate for the top border and still have vertical centering */
     padding-bottom: 2px;
     padding-left: 10px;
     padding-right: 10px;
