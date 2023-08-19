@@ -33,10 +33,18 @@
   // -------------------------------------------------------------------------
   // Modules
   // -------------------------------------------------------------------------
-
   "sway/window": {
-      "format": "{}",
-      "max-length": 120
+      "format": "{title}",
+      "max-length": 120,
+      "all-outputs" : true,
+      "offscreen-css" : true,
+      "offscreen-css-text": "(inactive)",
+      "rewrite": {
+         "(.*)Firefox(.*)": "<span font='8'></span>  $1",
+         "(.*)nvim(.*)": "<span font='10'></span>   $2",
+         "Spotify": "<span font='8'></span>   Spotify",
+         "(.*)@(.*):(.*)": "<span font='10'></span>     $3"
+      }
   },
 
   "sway/workspaces": {
@@ -47,7 +55,6 @@
 
   "sway/mode": {
     "format": "<span style=\"italic\">  {}</span>", // Icon: expand-arrows-alt
-    "tooltip": false
   },
 
   "memory": {
@@ -105,8 +112,6 @@
     "exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
     "interval": 30,
     "format": "  {}",
-    "signal": 1,
-    "tooltip": false
   },
 
   "battery": {
@@ -115,7 +120,7 @@
       "warning": 30,
       "critical": 15
     },
-    "format": " {icon}  {capacity}%", // Icon: bolt
+    "format": " {icon}",
     "format-discharging": "{icon}",
     "format-icons": ["", "", "", "", ""]
   },
