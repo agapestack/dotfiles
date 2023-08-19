@@ -172,7 +172,7 @@
     padding-bottom: 2px;
 }
 
-#temperature {
+#tempera-ture {
     /* No styles */
 }
 
@@ -190,15 +190,19 @@
 }
 
 #custom-spotify {
-    background-color: #1DB954;
-    color: black;
+    color: #1DB954;
+    border: 1px solid #1DB954;
+    font-weight: bold;
 }
 
 #backlight {
-    background-color: #E47025;
-    color: black;
+    color: #E47025;
+    border: 1px solid #E47025;
+    font-weight: bold;
 }
 
 #bluetooth {
-  background-color: #0082FC;
+  color: #0082FC;
+  border: 1px solid #0082FC;
+  font-weight: bold;
 }
