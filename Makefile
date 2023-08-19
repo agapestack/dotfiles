@@ -53,7 +53,7 @@ install-term: ## zsh zsh-completions foot tmux
 
 install-file-manager: ## install thunar, imv for image, vlc for videos
 	sudo pacman -S thunar imv vlc swayimg
-	yay -S dragon-drop
+	yay -S dragon-drop lf
 
 install-sway: ## swayfx waybar swaylock-effects-git swayidle swaybg wev xorg-xwaylang brightnessctl autotiling mako mpv swayimg
 	yay -S swayfx waybar swaylock-effects-git swayidle swaybg mako mpv xorg-xwayland brightnessctl wev autotiling wdisplays-git
@@ -70,15 +70,15 @@ install-pdfutils: ## zathura zathura-pdf-mupdf
 install-latex: ## texlive-binextra (latexmk) texlive
 	pacman -S texlive-binextra texlive
 
-install-audio: ## pipewire helvum pavucontrol
-	pacman -S pipewire pipewire-alsa pipewire-pulse helvum pavucontrol
+install-audio: ## pipewire helvum pavucontrol wireplumber
+	pacman -S pipewire pipewire-alsa pipewire-pulse helvum pavucontrol wireplumber
 
 ## THEME
 install-powerlevel: ## install powerlevel10K
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
 
 install-font: ## adobe-ro font-awesome roboto-mono-nerd
-	pacman -S adobe-source-code-pro-fonts otf-font-awesome ttf-font-awesome ttf-roboto-mono-nerd ttf-jetbrains-mono
+	pacman -S adobe-source-code-pro-fonts otf-font-awesome ttf-font-awesome ttf-roboto-mono-nerd ttf-jetbrains-mono ttf-liberation ttf-droid
 
 ## UNINSTALL
 uninstall-src: ## remove $HOME/dotfiles/src folder

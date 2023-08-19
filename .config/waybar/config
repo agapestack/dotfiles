@@ -1,154 +1,168 @@
-// vim: ts=4 sw=4 et
-
 {
-    // -------------------------------------------------------------------------
-    // Global configuration
-    // -------------------------------------------------------------------------
+  // -------------------------------------------------------------------------
+  // Global configuration
+  // -------------------------------------------------------------------------
 
-    "layer": "top",
+  "layer": "top",
 
-    "position": "top",
+  "position": "top",
 
-    "modules-left": [
-        "sway/workspaces",
-        "sway/mode",
-        "memory",
-        "cpu",
-        "temperature",
-        "network",
-    ],
-    "modules-center": [
-        "sway/window",
-    ],
-    "modules-right": [
-        "backlight",
-        "pulseaudio",
-        "bluetooth",
-        "custom/keyboard-layout",
-        "battery",
-        "clock#date",
-        "clock#time"
-    ],
+  "modules-left": [
+    "sway/workspaces",
+    "sway/mode",
+    "memory",
+    "cpu",
+    "temperature",
+    "network",
+  ],
+  "modules-center": [
+    "sway/window",
+  ],
+  "modules-right": [
+    "custom/spotify",
+    "backlight",
+    "bluetooth",
+    "wireplumber",
+    "custom/keyboard-layout",
+    "battery",
+    "clock#date",
+    "clock#time"
+  ],
 
 
-    // -------------------------------------------------------------------------
-    // Modules
-    // -------------------------------------------------------------------------
+  // -------------------------------------------------------------------------
+  // Modules
+  // -------------------------------------------------------------------------
 
-    "sway/window": {
-        "format": "{}",
-        "max-length": 120
-    },
+  "sway/window": {
+      "format": "{}",
+      "max-length": 120
+  },
 
-    "sway/workspaces": {
-        "all-outputs": false,
-        "disable-scroll": true,
-        "format": "{name}",
-    },
+  "sway/workspaces": {
+      "all-outputs": false,
+      "disable-scroll": true,
+      "format": "{name}",
+  },
 
-    "sway/mode": {
-        "format": "<span style=\"italic\">  {}</span>", // Icon: expand-arrows-alt
-        "tooltip": false
-    },
+  "sway/mode": {
+    "format": "<span style=\"italic\">  {}</span>", // Icon: expand-arrows-alt
+    "tooltip": false
+  },
 
-    "memory": {
-        "interval": 5,
-        "format": "  {}%", // Icon: memory
-        "states": {
-            "warning": 70,
-            "critical": 90
-        }
-    },
-
-    "cpu": {
-        "interval": 5,
-        "format": "  {usage}% ({load})", // Icon: microchip
-        "states": {
-          "warning": 70,
-          "critical": 90
-        }
-    },
-
-    "network": {
-        "interval": 5,
-        "format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
-        "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
-        "format-disconnected": "⚠  Disconnected",
-        "tooltip-format": "{ifname}: {ipaddr}"
-    },
-
-    "pulseaudio": {
-        "format": "{icon}  {volume}%",
-        "format-muted": "",
-        "format-icons": {
-            "default": ["", ""]
-        },
-        "on-click": "pavucontrol"
-    },
-
-    "bluetooth": {
-        "format": " {status}",
-        "format-disabled": "", // an empty format will hide the module
-        "format-connected": " {num_connections} ",
-        "tooltip-format": "{controller_alias}\t{controller_address}",
-        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-        "on-click": "helvum"
-    },
-
-    "custom/keyboard-layout": {
-      "exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
-      // Interval set only as a fallback, as the value is updated by signal
-      "interval": 30,
-      "format": "  {}", // Icon: keyboard
-      // Signal sent by Sway key binding (~/.config/sway/key-bindings)
-      "signal": 1, // SIGHUP
-      "tooltip": false
-    },
-
-    "battery": {
-        "interval": 10,
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        // Connected to AC
-        "format": " {icon}     {capacity}%", // Icon: bolt
-        // Not connected to AC
-        "format-discharging": "{icon}",
-        "format-icons": ["", "", "", "", ""],
-        "tooltip": true
-    },
-
-    "temperature": {
-      "critical-threshold": 80,
-      "interval": 5,
-      "format": "{icon}  {temperatureC}°C",
-      "format-icons": [
-          "", // Icon: temperature-empty
-          "", // Icon: temperature-quarter
-          "", // Icon: temperature-half
-          "", // Icon: temperature-three-quarters
-          ""  // Icon: temperature-full
-      ],
-      "tooltip": true
-    },
-
-    "clock#date": {
-      "interval": 10,
-      "format": "  {:%e %b %Y}", // Icon: calendar-alt
-      "tooltip-format": "{:%e %B %Y}"
-    },
-
-    "clock#time": {
-        "interval": 1,
-        "format": "{:%H:%M}",
-        "tooltip": false
-    },
-
-    "backlight": {
-        "device": "intel_backlight",
-        "format": "{percent}% {icon} ",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+  "memory": {
+    "interval": 5,
+    "format": "  {}%", // Icon: memory
+    "states": {
+      "warning": 70,
+      "critical": 90
     }
+  },
+
+  "cpu": {
+    "interval": 5,
+    "format": "  {usage}% ({load})", // Icon: microchip
+    "states": {
+      "warning": 70,
+      "critical": 90
+    }
+  },
+
+  "network": {
+    "interval": 5,
+    "format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
+    "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
+    "format-disconnected": "⚠  Disconnected",
+    "tooltip-format": "{ifname}: {ipaddr}"
+  },
+
+  "custom/spotify": {
+    "exec": "/usr/bin/python3 $HOME/.config/waybar/mediaplayer.py --player spotify",
+    "format": "{}  ",
+    "return-type": "json",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+  },
+
+  "wireplumber": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "on-click": "helvum",
+    "format-icons": ["", "", ""]
+  },
+
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "", // an empty format will hide the module
+    "format-connected": " {num_connections} ",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "helvum"
+  },
+
+  "custom/keyboard-layout": {
+    "exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
+    "interval": 30,
+    "format": "  {}",
+    "signal": 1,
+    "tooltip": false
+  },
+
+  "battery": {
+    "interval": 10,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": " {icon}  {capacity}%", // Icon: bolt
+    "format-discharging": "{icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "temperature": {
+    "critical-threshold": 80,
+    "interval": 5,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": [
+      "", // Icon: temperature-empty
+      "", // Icon: temperature-quarter
+      "", // Icon: temperature-half
+      "", // Icon: temperature-three-quarters
+      ""  // Icon: temperature-full
+    ],
+    "tooltip": true
+  },
+
+  "clock#date": {
+    "interval": 10,
+    "format": "{:📆 %e %b %Y}", // Icon: calendar-alt
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode"          : "year",
+      "mode-mon-col"  : 3,
+      "weeks-pos"     : "right",
+      "on-scroll"     : 1,
+      "on-click-right": "mode",
+      "format": {
+        "months":     "<span color='#ffead3'><b>{}</b></span>",
+        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+        "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+        }
+      },
+  },
+
+  "clock#time": {
+    "interval": 1,
+    "format": "{:%H:%M}",
+    "tooltip": false
+  },
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
+  }
 }
