@@ -73,8 +73,8 @@ install-audio: ## pipewire helvum pavucontrol wireplumber
 install-powerlevel: ## install powerlevel10K
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
 
-install-font: ## adobe-ro font-awesome roboto-mono-nerd
-	pacman -S adobe-source-code-pro-fonts otf-font-awesome ttf-font-awesome ttf-roboto-mono-nerd ttf-jetbrains-mono ttf-liberation ttf-droid
+install-font: ## shit-ton of fonts
+	pacman -S adobe-source-code-pro-fonts otf-font-awesome ttf-font-awesome ttf-roboto-mono-nerd ttf-jetbrains-mono ttf-liberation ttf-droid nerd-fonts
 
 ## UNINSTALL
 uninstall-src: ## remove $HOME/dotfiles/src folder
