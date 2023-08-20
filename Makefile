@@ -47,8 +47,8 @@ install-nvim: ## install neovim
 install-term: ## zsh zsh-completions foot tmux
 	yay -S zsh foot zsh-completions tmux
 
-install-file-manager: ## install thunar, imv for image, vlc for videos
-	sudo pacman -S thunar imv vlc swayimg
+install-file-manager: ## install imv for image, vlc for videos
+	sudo pacman -S imv vlc swayimg
 	yay -S dragon-drop lf
 
 install-sway: ## swayfx waybar swaylock-effects-git swayidle swaybg wev xorg-xwaylang brightnessctl autotiling mako mpv swayimg
