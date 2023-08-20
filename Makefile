@@ -7,7 +7,7 @@ RESET  := $(shell tput -Txterm sgr0)
 
 USERNAME="agape"
 
-.PHONY: link install-theme install-yay install-asdf install-rust install-zellij install-screenshot install-login install-tools install-fonts install-term etc-env uninstall-src install-file-manager install-powerlevel install-sway install-addons install-pdfutils install-nvim install-latex install-audio install-yubikey
+.PHONY: link install-theme install-yay install-asdf install-rust install-screenshot install-login install-tools install-fonts install-term etc-env uninstall-src install-file-manager install-powerlevel install-sway install-addons install-pdfutils install-nvim install-latex install-audio install-yubikey
 
 all: help
 
@@ -30,10 +30,6 @@ install-asdf: ## install asdf
 
 install-rust: ## install rustup
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-install-zellij: ## install zellij
-	cargo install --locked zellij
-	rustup update
 
 install-screenshot: ## install slurp & grim for screenshot
 	yay -S grim slurp
