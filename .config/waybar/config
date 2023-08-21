@@ -19,6 +19,7 @@
     "sway/window",
   ],
   "modules-right": [
+//    "custom/vlc",
     "custom/spotify",
     "backlight",
     "bluetooth",
@@ -84,9 +85,16 @@
     "tooltip-format": "{ifname}: {ipaddr}"
   },
 
+  "custom/vlc": {
+    "exec": "/usr/bin/python3 $HOME/.config/waybar/mediaplayer.py --player vlc",
+    "format": "󰕼  {}",
+    "return-type": "json",
+    "on-click": "playerctl --player=vlc play-pause",
+  },
+
   "custom/spotify": {
     "exec": "/usr/bin/python3 $HOME/.config/waybar/mediaplayer.py --player spotify",
-    "format": "{}  ",
+    "format": " {}",
     "return-type": "json",
     "on-click": "playerctl --player=spotify play-pause",
     "on-scroll-up": "playerctl --player=spotify next",

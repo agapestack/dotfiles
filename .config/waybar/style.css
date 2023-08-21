@@ -61,6 +61,7 @@
 #clock,
 #cpu,
 #custom-keyboard-layout,
+#custom-vlc,
 #custom-spotify,
 #memory,
 #mode,
@@ -189,6 +190,12 @@
 
 #network.disconnected {
     color: orange;
+}
+
+#custom-vlc {
+    color: #F48B00;
+    border: 1px solid #F48B00;
+    font-weight: bold;
 }
 
 #custom-spotify {
