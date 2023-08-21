@@ -40,11 +40,8 @@ set {
         $menu wofi --show drun -H 500 -W 800
 }
 
-# SWAY
-bindsym $mod+Shift+s exec pkill sway && sway
-
 # WAYBAR
-bindsym $mod+Shift+w exit
+bindsym $mod+Shift+w exec pkill waybar && nohup waybar > /dev/null &
 
 # WOFI
 bindsym $mod+d exec $menu
