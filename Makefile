@@ -21,7 +21,7 @@ install-theme:	## install terminal theme
 
 ## SYSTEM
 install-yay: ## install yay
-	pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+	sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 
 install-asdf: ## install asdf
 	cd ~
@@ -39,10 +39,10 @@ install-login: ## install login manager: lemurs
 	sudo systemctl enable lemurs.service
 
 install-tools: ## pkg-config curl git wl-clipboard
-	pacman -S pkg-config curl git lua wl-clipboard
+	sudo pacman -S pkg-config curl git lua wl-clipboard
 
 install-nvim: ## install neovim
-	pacman -S neovim xsel ripgrep
+	sudo pacman -S neovim xsel ripgrep
 
 install-term: ## zsh zsh-completions foot tmux
 	yay -S zsh foot zsh-completions tmux
@@ -58,23 +58,23 @@ install-yubikey: ## yubikey-manager libfido2
 	sudo pacman -S yubikey-manager libfido2
 
 install-addons: ## neofetch
-	pacman -S neofetch
+	sudo pacman -S neofetch
 
 install-pdfutils: ## zathura zathura-pdf-mupdf
-	pacman -S zathura zathura-pdf-mupdf
+	sudo pacman -S zathura zathura-pdf-mupdf
 
 install-latex: ## texlive-binextra (latexmk) texlive
-	pacman -S texlive-binextra texlive
+	sudo pacman -S texlive-binextra texlive
 
 install-audio: ## pipewire helvum pavucontrol wireplumber
-	pacman -S pipewire pipewire-alsa pipewire-pulse helvum pavucontrol wireplumber
+	sudo pacman -S pipewire pipewire-alsa pipewire-pulse helvum pavucontrol wireplumber
 
 ## THEME
 install-powerlevel: ## install powerlevel10K
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
 
 install-font: ## shit-ton of fonts
-	pacman -S adobe-source-code-pro-fonts otf-font-awesome ttf-font-awesome ttf-roboto-mono-nerd ttf-jetbrains-mono ttf-liberation ttf-droid nerd-fonts
+	sudo pacman -S adobe-source-code-pro-fonts otf-font-awesome ttf-font-awesome ttf-roboto-mono-nerd ttf-jetbrains-mono ttf-liberation ttf-droid nerd-fonts
 
 ## UNINSTALL
 uninstall-src: ## remove $HOME/dotfiles/src folder
@@ -96,6 +96,3 @@ help: ## Show this help.
 		if (/^[a-zA-Z_-]+:.*?##.*$$/) {printf "    ${YELLOW}%-30s${GREEN}%s${RESET}\n", $$1, $$2} \
 		else if (/^## .*$$/) {printf "  ${CYAN}%s${RESET}\n", substr($$1,4)} \
 		}' $(MAKEFILE_LIST)
-
-
-
