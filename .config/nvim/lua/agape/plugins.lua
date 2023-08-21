@@ -66,6 +66,9 @@ return require('packer').startup(function(use)
   -- NVIM TMUX
   use { "alexghergh/nvim-tmux-navigation" }
 
+  -- AUTO PAIRS
+  use { "jiangmiao/auto-pairs" }
+
   -- MARKDOWN PREVIEW
   use({
       "iamcco/markdown-preview.nvim",
