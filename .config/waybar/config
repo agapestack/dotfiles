@@ -41,7 +41,7 @@
       "offscreen-css" : true,
       "offscreen-css-text": "(inactive)",
       "rewrite": {
-         "(.*)Firefox(.*)": "<span font='8'></span>  $1",
+         "(.*)Firefox(.*)": "<span font='8'> </span>  $1",
          "(.*)nvim(.*)": "<span font='10'></span>   $2",
          "Spotify": "<span font='8'></span>   Spotify",
          "(.*)@(.*):(.*)": "<span font='10'></span>     $3",
