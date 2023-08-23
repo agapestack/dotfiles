@@ -102,7 +102,7 @@
   },
 
   "wireplumber": {
-    "format": "{icon} {volume}%",
+    "format": "{icon}  {volume}%",
     "format-muted": "",
     "on-click": "helvum",
     "format-icons": ["", "", ""]
@@ -177,7 +177,7 @@
 
   "backlight": {
     "device": "intel_backlight",
-    "format": "{icon} {percent}%",
+    "format": "{icon}  {percent}%",
     "format-icons": ["", "", "", "", "", "", "", "", ""]
   }
 }
