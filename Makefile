@@ -49,7 +49,6 @@ install-term: ## zsh zsh-completions foot tmux
 
 install-file-manager: ## install imv for image, vlc for videos
 	sudo pacman -S imv vlc swayimg pcmanfm-gtk3
-	yay -S dragon-drop lf
 
 install-sway: ## swayfx waybar swaylock-effects-git swayidle swaybg wev xorg-xwaylang brightnessctl autotiling mako mpv swayimg
 	yay -S swayfx waybar swaylock-effects-git swayidle swaybg mako mpv xorg-xwayland brightnessctl wev autotiling wdisplays-git
