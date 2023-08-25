@@ -29,3 +29,21 @@ lsp.ensure_installed({
 })
 
 lsp.setup()
+
+-- Custom binding with cmp
+local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action()
+
+cmp.setup({
+  mapping = {
+    -- `Enter` key to configrm completion
+    ['<CR>'] = cmp.mapping.configm({select = false}),
+
+    -- Ctrl+Space to trigger completion menu
+    ['<C-Space'] = cmp.mapping.complete(),
+
+    -- Navigate between snipper placeholder
+    ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+    ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+  }
+})
