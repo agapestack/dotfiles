@@ -1,20 +1,54 @@
+# GENERAL
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin
+export EDITOR='nvim'
+export VISUAL='nvim'
 
-. "$HOME/.cargo/env"
+# GO
+export GOPATH=$HOME/go
+export GOBIN=$HOME/bin
 
-complete -C /usr/bin/terraform terraform
+# PNPM
+export PNPM_HOME="/home/agape/.local/share/pnpm"
+export PATH="$HOME/dotfiles/bin:$PNPM_HOME:$PATH"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/agape/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/agape/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/agape/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/agape/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+# ALIAS
+alias "sudo"="sudo "
+alias "vim"="nvim"
+alias "vi"="vim"
+alias "list_monitors"=list_monitors
+alias "list_apps"="swaymsg -t get_tree | less"
+alias "list_inputs"="wev"
+alias "init_Makefile"=init_Makefile
+alias "kill_containers"=kill_containers
 
+function kill_containers {
+	docker kill $(sudo docker ps -q)
+}
+
+function list_monitors {
+	swaymsg -t get_outputs $*
+}
+
+function init_Makefile {
+	cp $HOME/dotfiles/templates/Makefile .
+}
+
+
+# Path to your oh-my-bash installation.
+export OSH='/home/agape/.oh-my-bash'
+
+OSH_THEME="pzq"
+
+OMB_USE_SUDO=true
+
+completions=(
+  git
+  ssh
+)
+
+plugins=(
+  git
+  bashmarks
+)
+
+source "$OSH"/oh-my-bash.sh
