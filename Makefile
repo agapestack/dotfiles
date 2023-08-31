@@ -50,9 +50,13 @@ install-term: ## zsh zsh-completions foot tmux
 install-file-manager: ## install imv for image, vlc for videos
 	sudo pacman -S imv vlc swayimg pcmanfm-gtk3
 
-install-sway: ## swayfx waybar swaylock-effects-git swayidle swaybg wev xorg-xwaylang brightnessctl autotiling mako mpv swayimg
-	yay -S swayfx waybar swaylock-effects-git swayidle swaybg mako mpv xorg-xwayland brightnessctl wev autotiling wdisplays-git
+install-sway: ## swayfx waybar swaylock-effects-git swayidle swaybg wev xorg-xwaylang brightnessctl autotiling mako mpv swayimg wofi
+	yay -S swayfx waybar swaylock-effects-git swayidle swaybg mako mpv xorg-xwayland brightnessctl wev autotiling wdisplays-git wofi
+
 ## UTILS
+install-utils: ## firefox
+	sudo pacman -S firefox
+
 install-yubikey: ## yubikey-manager libfido2
 	sudo pacman -S yubikey-manager libfido2
 
