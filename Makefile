@@ -7,7 +7,7 @@ RESET  := $(shell tput -Txterm sgr0)
 
 USERNAME="agape"
 
-.PHONY: link install-theme install-yay install-asdf install-rust install-screenshot install-login install-tools install-fonts install-term etc-env uninstall-src install-file-manager install-powerlevel install-sway install-addons install-pdfutils install-nvim install-latex install-audio install-yubikey install-utils
+.PHONY: link install-theme install-yay install-asdf install-rust install-screenshot install-login install-tools install-fonts install-term etc-env uninstall-src install-file-manager install-powerlevel install-sway install-addons install-pdfutils install-nvim install-latex install-audio install-yubikey install-utils install-bluetooth install-dark
 
 all: help
 
@@ -56,6 +56,14 @@ install-sway: ## swayfx waybar swaylock-effects-git swayidle swaybg wev xorg-xwa
 ## UTILS
 install-utils: ## firefox
 	sudo pacman -S firefox
+
+install-dark: ## gnome-themes-extra adwaita-qt5 adwaita-qt6
+	yay -S gnome-themes-extra adwaita-qt5 adwaita-qt6
+
+install-bluetooth: ## bluez bluez-utils blueman
+	sudo pacman -S bluez bluez-utils blueman
+	sudo systemctl enable bluetooth.service
+	sudo systemctl start bluetooth.service
 
 install-yubikey: ## yubikey-manager libfido2
 	sudo pacman -S yubikey-manager libfido2
