@@ -45,7 +45,8 @@
          "(.*)nvim(.*)": "<span font='10'></span>   $2",
          "Spotify": "<span font='8'></span>   Spotify",
          "(.*)@(.*):(.*)": "<span font='10'></span>     $3",
-         "(.*) - Discord": "<span font='8'></span>  $1"
+         "(.*) - Discord": "<span font='8'></span>  $1",
+         "(.*) - Mozilla Thunderbird": "<span font='8'>  </span> $1"
       }
   },
 
