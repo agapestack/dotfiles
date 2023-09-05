@@ -20,24 +20,22 @@ output * bg $wallpapers/one-piece fill
 
 # ASSIGNMENTS
 # assign 		    [app_id="firefox"] 		        2
-# assign            [class="VSCodium"]              3
-# assign            [class="obsidian"]              4
 # assign 		    [class="Spotify"] 		        5
-# assign            [class="discord"]               5
+# assign          [class="discord"]               5
 
 # MAPING
 set {
 # Mod1 == Alt    Mod4 == Super
     $mod Mod4
-        $mod2 Mod1
+    $mod2 Mod1
 
-        $left h
-        $down j
-        $up k
-        $right l
+    $left h
+    $down j
+    $up k
+    $right l
 
-        $term foot
-        $menu wofi --show drun -H 500 -W 800
+    $term foot
+    $menu wofi --show drun -H 500 -W 800
 }
 
 # WAYBAR
