@@ -80,8 +80,8 @@
 
   "network": {
     "interval": 5,
-    "format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
-    "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
+    "format-wifi": "  {essid} ({signalStrength}%)     {bandwidthDownOctets}      {bandwidthUpOctets}", // Icon: wifi
+    "format-ethernet": "  {ifname}: {ipaddr}/{cidr}    {bandwidthDownOctets}      {bandwidthUpOctets}", // Icon: ethernet
     "format-disconnected": "⚠  Disconnected",
     "tooltip-format": "{ifname}: {ipaddr}"
   },
