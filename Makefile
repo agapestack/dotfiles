@@ -44,8 +44,8 @@ install-tools: ## pkg-config curl git wl-clipboard
 install-nvim: ## install neovim
 	sudo pacman -S neovim xsel ripgrep
 
-install-term: ## zsh zsh-completions foot tmux
-	yay -S zsh foot zsh-completions tmux
+install-term: ## zsh zsh-completions alacritty tmux
+	yay -S zsh alacritty zsh-completions tmux
 
 install-file-manager: ## install imv for image, vlc for videos
 	sudo pacman -S imv vlc swayimg pcmanfm-gtk3

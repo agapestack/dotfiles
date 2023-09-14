@@ -34,7 +34,7 @@ set {
     $up k
     $right l
 
-    $term foot
+    $term alacritty
     $menu wofi --show drun -H 500 -W 800
 }
 
@@ -81,21 +81,19 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 #     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 # BINDINGS
-    # Start a terminal
-    bindsym $mod+Return exec $term
-    # Kill focused window
-    bindsym $mod+Shift+q kill
-    bindsym $mod2+$mod+l exec $lock_path
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+q kill
+bindsym $mod2+$mod+l exec $lock_path
 
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
-    floating_modifier $mod normal
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
 
-    # Reload the configuration file
-    bindsym $mod+Shift+c reload
+# Reload the configuration file
+bindsym $mod+Shift+c reload
 
 # MOVING AROUND
     # Move your focus around
