@@ -34,9 +34,9 @@ install-rust: ## install rustup
 install-screenshot: ## install slurp & grim for screenshot
 	yay -S grim slurp
 
-install-login: ## install login manager: lemurs
-	yay -S lemurs-git
-	sudo systemctl enable lemurs.service
+install-login: ## install login manager: ly
+	sudo pacman -S ly
+	sudo systemctl enable ly
 
 install-tools: ## pkg-config curl git wl-clipboard
 	sudo pacman -S pkg-config curl git lua wl-clipboard

@@ -35,7 +35,6 @@ export PNPM_HOME="/home/agape/.local/share/pnpm"
 export PATH="$HOME/dotfiles/bin:$PNPM_HOME:$PATH"
 # pnpm end
 
-alias "burpsuite"="~/BurpSuiteCommunity/jre/bin/java -jar ~/BurpSuiteCommunity/burpsuite_community.jar"
 alias "sudo"="sudo "
 alias "vim"="nvim"
 alias "vi"="vim"

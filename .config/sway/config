@@ -92,8 +92,9 @@ bindsym $mod2+$mod+l exec $lock_path
 # mouse button for dragging.
 floating_modifier $mod normal
 
-# Reload the configuration file
+# Sway
 bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exit
 
 # MOVING AROUND
     # Move your focus around
