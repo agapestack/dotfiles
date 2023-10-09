@@ -21,7 +21,6 @@ lsp.ensure_installed({
   'texlab',
   'lua_ls',
   'marksman',
-  'pylsp',
   'jedi_language_server',
   'sqlls',
   'tailwindcss',
