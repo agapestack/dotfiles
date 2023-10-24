@@ -36,22 +36,13 @@ return require('packer').startup(function(use)
   use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
   use 'romgrk/barbar.nvim'
 
-  -- LSP ZERO
-  -- use {
-  --   'VonHeikemen/lsp-zero.nvim',
-  --   branch = 'v2.x',
-  --   requires = {
-  --     -- LSP Support
-  --     {'neovim/nvim-lspconfig'},             -- Required
-  --     {'williamboman/mason.nvim'},           -- Optional
-  --     {'williamboman/mason-lspconfig.nvim'}, -- Optional
+  -- Rust LSP configuration
+  use 'neovim/nvim-lspconfig'
+  use 'simrat39/rust-tools.nvim'
 
-  --     -- Autocompletion
-  --     {'hrsh7th/nvim-cmp'},     -- Required
-  --     {'hrsh7th/cmp-nvim-lsp'}, -- Required
-  --     {'L3MON4D3/LuaSnip'},     -- Required
-  --   }
-  -- }
+  -- Debugging
+  use 'nvim-lua/plenary.nvim'
+  use 'mfussenegger/nvim-dap'
 
   -- HOP
   use {
@@ -68,14 +59,6 @@ return require('packer').startup(function(use)
 
   -- AUTO PAIRS
   use { "jiangmiao/auto-pairs" }
-
-  -- MARKDOWN PREVIEW
-  use({
-      "iamcco/markdown-preview.nvim",
-      run = function() vim.fn["mkdp#util#install"]() end,
-  })
-
-  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
   -- Automatically set up your configuration after cloning packer.nvim
   if packer_bootstrap then

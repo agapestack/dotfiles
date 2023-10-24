@@ -36,6 +36,9 @@ export PATH="$HOME/dotfiles/bin:$PNPM_HOME:$PATH"
 # pnpm end
 
 alias "checksec"="/home/agape/sources/checksec.sh/checksec"
+alias "aslr_off"="echo 0 | sudo tee /proc/sys/kernel/randomize_va_space"
+alias "aslr_on"="echo 2 | sudo tee /proc/sys/kernel/randomize_va_space"
+alias "aslr_status"="cat /proc/sys/kernel/randomize_va_space"
 alias "sudo"="sudo "
 alias "vim"="nvim"
 alias "vi"="vim"
