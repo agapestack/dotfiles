@@ -35,7 +35,7 @@ export PNPM_HOME="/home/agape/.local/share/pnpm"
 export PATH="$HOME/dotfiles/bin:$PNPM_HOME:$PATH"
 # pnpm end
 
-alias "auto_ghidra"="python3 ~/dotfiles/scripts/auto_ghidra.py"
+alias "ghidra"="nohup ghidra >/dev/null 2>&1"
 alias "checksec"="/home/agape/sources/checksec.sh/checksec"
 alias "aslr_off"="echo 0 | sudo tee /proc/sys/kernel/randomize_va_space"
 alias "aslr_on"="echo 2 | sudo tee /proc/sys/kernel/randomize_va_space"
