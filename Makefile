@@ -41,8 +41,9 @@ install-login: ## install login manager: ly
 install-tools: ## pkg-config curl git wl-clipboard
 	sudo pacman -S pkg-config curl git lua wl-clipboard
 
-install-nvim: ## install neovim
+install-nvim: install-rust ## install neovim
 	sudo pacman -S neovim xsel ripgrep
+	cargo install stylua
 
 install-term: ## zsh zsh-completions alacritty tmux
 	yay -S zsh alacritty zsh-completions tmux
