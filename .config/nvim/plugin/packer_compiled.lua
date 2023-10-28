@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/agape/.cache/nvim/packer_hererocks/2.1.1692616192/share/lua/5.1/?.lua;/home/agape/.cache/nvim/packer_hererocks/2.1.1692616192/share/lua/5.1/?/init.lua;/home/agape/.cache/nvim/packer_hererocks/2.1.1692616192/lib/luarocks/rocks-5.1/?.lua;/home/agape/.cache/nvim/packer_hererocks/2.1.1692616192/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/agape/.cache/nvim/packer_hererocks/2.1.1692616192/lib/lua/5.1/?.so"
+local package_path_str = "/home/agape/.cache/nvim/packer_hererocks/2.1.1697887905/share/lua/5.1/?.lua;/home/agape/.cache/nvim/packer_hererocks/2.1.1697887905/share/lua/5.1/?/init.lua;/home/agape/.cache/nvim/packer_hererocks/2.1.1697887905/lib/luarocks/rocks-5.1/?.lua;/home/agape/.cache/nvim/packer_hererocks/2.1.1697887905/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/agape/.cache/nvim/packer_hererocks/2.1.1697887905/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -74,11 +74,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  LuaSnip = {
-    loaded = true,
-    path = "/home/agape/.local/share/nvim/site/pack/packer/start/LuaSnip",
-    url = "https://github.com/L3MON4D3/LuaSnip"
-  },
   ["auto-pairs"] = {
     loaded = true,
     path = "/home/agape/.local/share/nvim/site/pack/packer/start/auto-pairs",
@@ -89,10 +84,10 @@ _G.packer_plugins = {
     path = "/home/agape/.local/share/nvim/site/pack/packer/start/barbar.nvim",
     url = "https://github.com/romgrk/barbar.nvim"
   },
-  ["cmp-nvim-lsp"] = {
+  ["formatter.nvim"] = {
     loaded = true,
-    path = "/home/agape/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
-    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+    path = "/home/agape/.local/share/nvim/site/pack/packer/start/formatter.nvim",
+    url = "https://github.com/mhartington/formatter.nvim"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
@@ -105,30 +100,25 @@ _G.packer_plugins = {
     path = "/home/agape/.local/share/nvim/site/pack/packer/start/hop.nvim",
     url = "https://github.com/phaazon/hop.nvim"
   },
-  ["lsp-zero.nvim"] = {
+  ["kanagawa.nvim"] = {
     loaded = true,
-    path = "/home/agape/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
-    url = "https://github.com/VonHeikemen/lsp-zero.nvim"
+    path = "/home/agape/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
   },
-  ["markdown-preview.nvim"] = {
+  ["monokai.nvim"] = {
     loaded = true,
-    path = "/home/agape/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
-    url = "https://github.com/iamcco/markdown-preview.nvim"
+    path = "/home/agape/.local/share/nvim/site/pack/packer/start/monokai.nvim",
+    url = "https://github.com/tanvirtin/monokai.nvim"
   },
-  ["mason-lspconfig.nvim"] = {
+  neoterm = {
     loaded = true,
-    path = "/home/agape/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
-    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+    path = "/home/agape/.local/share/nvim/site/pack/packer/start/neoterm",
+    url = "https://github.com/kassio/neoterm"
   },
-  ["mason.nvim"] = {
+  ["nvim-dap"] = {
     loaded = true,
-    path = "/home/agape/.local/share/nvim/site/pack/packer/start/mason.nvim",
-    url = "https://github.com/williamboman/mason.nvim"
-  },
-  ["nvim-cmp"] = {
-    loaded = true,
-    path = "/home/agape/.local/share/nvim/site/pack/packer/start/nvim-cmp",
-    url = "https://github.com/hrsh7th/nvim-cmp"
+    path = "/home/agape/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -160,6 +150,11 @@ _G.packer_plugins = {
     path = "/home/agape/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["rust-tools.nvim"] = {
+    loaded = true,
+    path = "/home/agape/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
+    url = "https://github.com/simrat39/rust-tools.nvim"
+  },
   sonokai = {
     loaded = true,
     path = "/home/agape/.local/share/nvim/site/pack/packer/start/sonokai",
@@ -170,6 +165,11 @@ _G.packer_plugins = {
     path = "/home/agape/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/home/agape/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
+  },
   ["vim-commentary"] = {
     loaded = true,
     path = "/home/agape/.local/share/nvim/site/pack/packer/start/vim-commentary",
@@ -179,6 +179,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/agape/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
     url = "https://github.com/airblade/vim-gitgutter"
+  },
+  ["vim-moonfly-colors"] = {
+    loaded = true,
+    path = "/home/agape/.local/share/nvim/site/pack/packer/start/vim-moonfly-colors",
+    url = "https://github.com/github.com/bluz71/vim-moonfly-colors"
   },
   ["vim-trailing-whitespace"] = {
     loaded = true,

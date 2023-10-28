@@ -16,8 +16,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin
 export EDITOR='nvim'
 export VISUAL='nvim'
-export GOPATH=$HOME/go
-export GOBIN=$HOME/bin
+export GOPATH='/usr/local/go'
 
 export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_QPA_PLATFORM=wayland
@@ -116,12 +115,15 @@ source /opt/asdf-vm/asdf.sh
 
 ############################################################################
 
-############################################################################
 #___________________________ Sway  ______________________________________#
-if [ "$(tty)" = "/dev/tty1" ]; then
-	exec dbus-run-session sway
+# if [ "$(tty)" = "/dev/tty1" ]; then
+# 	exec dbus-run-session sway
+# fi
+
+#_______________________ Gnome Wayland  __________________________________#
+if [[ -z $DISPLAY && $(tty) == /dev/tty1 && $XDG_SESSION_TYPE == tty ]]; then
+  MOZ_ENABLE_WAYLAND=1 QT_QPA_PLATFORM=wayland XDG_SESSION_TYPE=wayland exec dbus-run-session gnome-session
 fi
-############################################################################
 
 ############################################################################
 #___________________________ powerlevel10k ________________________________#

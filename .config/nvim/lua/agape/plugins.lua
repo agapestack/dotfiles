@@ -15,16 +15,21 @@ local packer_bootstrap = ensure_packer()
 return require("packer").startup(function(use)
 	-- PACKER
 	use("wbthomason/packer.nvim")
-	-- THEME sonokai
-	use("sainnhe/sonokai")
-	use("bronson/vim-trailing-whitespace")
-	use("mhartington/formatter.nvim")
-	use("tpope/vim-commentary")
-	use("airblade/vim-gitgutter")
-	use({ "jiangmiao/auto-pairs" })
+	-- THEME and basics utils (comments, auto-pairs...)
+    use 'rebelot/kanagawa.nvim'
+    use 'folke/tokyonight.nvim'
+	use 'sainnhe/sonokai'
+    use 'tanvirtin/monokai.nvim'
+    use 'shaunsingh/nord.nvim'
+	use 'bronson/vim-trailing-whitespace'
+	use 'mhartington/formatter.nvim'
+	use 'tpope/vim-commentary'
+	use 'airblade/vim-gitgutter'
+	use({ 'jiangmiao/auto-pairs' })
 
 	-- TREESITTER
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
+
 	-- TELESCOPE
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -37,11 +42,24 @@ return require("packer").startup(function(use)
 	use("lewis6991/gitsigns.nvim") -- OPTIONAL: for git status
 	use("romgrk/barbar.nvim")
 
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional
+        },
+    }
+
 	-- Rust LSP configuration
 	use("neovim/nvim-lspconfig")
 	use("simrat39/rust-tools.nvim")
 	use("nvim-lua/plenary.nvim")
 	use("mfussenegger/nvim-dap")
+
+    -- LSP
+    use 'williamboman/mason.nvim'
+
+    -- Neoterm
+    use 'kassio/neoterm'
 
 	-- HOP
 	use({
