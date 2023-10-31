@@ -24,6 +24,8 @@ return require("packer").startup(function(use)
 	use 'bronson/vim-trailing-whitespace'
 	use 'mhartington/formatter.nvim'
 	use 'tpope/vim-commentary'
+    -- use 'tpope/vim-surround'
+    use 'machakann/vim-sandwich'
 	use 'airblade/vim-gitgutter'
 	use({ 'jiangmiao/auto-pairs' })
 
@@ -74,6 +76,13 @@ return require("packer").startup(function(use)
 	-- NVIM TMUX
 	use({ "alexghergh/nvim-tmux-navigation" })
 
+    -- Markdown preview
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
+
+use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 	-- Automatically set up your configuration after cloning packer.nvim
 	if packer_bootstrap then
 		require("packer").sync()

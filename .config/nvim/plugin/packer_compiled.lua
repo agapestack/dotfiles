@@ -105,6 +105,11 @@ _G.packer_plugins = {
     path = "/home/agape/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
     url = "https://github.com/rebelot/kanagawa.nvim"
   },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "/home/agape/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
   ["monokai.nvim"] = {
     loaded = true,
     path = "/home/agape/.local/share/nvim/site/pack/packer/start/monokai.nvim",
@@ -114,6 +119,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/agape/.local/share/nvim/site/pack/packer/start/neoterm",
     url = "https://github.com/kassio/neoterm"
+  },
+  ["nord.nvim"] = {
+    loaded = true,
+    path = "/home/agape/.local/share/nvim/site/pack/packer/start/nord.nvim",
+    url = "https://github.com/shaunsingh/nord.nvim"
   },
   ["nvim-dap"] = {
     loaded = true,
@@ -129,6 +139,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/agape/.local/share/nvim/site/pack/packer/start/nvim-tmux-navigation",
     url = "https://github.com/alexghergh/nvim-tmux-navigation"
+  },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/home/agape/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/nvim-tree/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -180,10 +195,10 @@ _G.packer_plugins = {
     path = "/home/agape/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
     url = "https://github.com/airblade/vim-gitgutter"
   },
-  ["vim-moonfly-colors"] = {
+  ["vim-surround"] = {
     loaded = true,
-    path = "/home/agape/.local/share/nvim/site/pack/packer/start/vim-moonfly-colors",
-    url = "https://github.com/github.com/bluz71/vim-moonfly-colors"
+    path = "/home/agape/.local/share/nvim/site/pack/packer/start/vim-surround",
+    url = "https://github.com/tpope/vim-surround"
   },
   ["vim-trailing-whitespace"] = {
     loaded = true,

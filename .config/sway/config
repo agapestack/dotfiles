@@ -34,7 +34,7 @@ set {
     $up k
     $right l
 
-    $term alacritty
+    $term gnome-terminal
     $menu wofi --show drun -H 500 -W 800
 }
 
