@@ -33,8 +33,7 @@ set {
     $down j
     $up k
     $right l
-
-    $term gnome-terminal
+    $term dbus-launch gnome-terminal
     $menu wofi --show drun -H 500 -W 800
 }
 
