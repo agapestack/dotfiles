@@ -18,7 +18,7 @@ export QT_SCALE_FACTOR=1
 # prevent java gray window --> https://wiki.archlinux.org/title/Java#Gray_window,_applications_not_resizing_with_WM,_menus_immediately_closin)
 export _JAVA_AWT_WM_NONREPARENTING=1
 export AWT_TOOLKIT=MToolkit
-if command -v wmname; then
+if command -v wmname &> /dev/null; then
     wmname LG3D
 fi
 
