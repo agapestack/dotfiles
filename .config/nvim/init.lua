@@ -1,7 +1,8 @@
-require("agape.keymaps")
-require("agape.options")
-require("agape.plugins")
-require("agape.lsp")
+require("keymaps")
+require("options")
+require("plugins")
+require("lsp")
+require("setup")
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
