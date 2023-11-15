@@ -1,9 +1,9 @@
 ----------  PACKER  ----------
 local ensure_packer = function()
 	local fn = vim.fn
-	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+	local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 	if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+		fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
 		vim.cmd([[packadd packer.nvim]])
 		return true
 	end
@@ -12,9 +12,9 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-return require("packer").startup(function(use)
+return require('packer').startup(function(use)
 	-- PACKER
-	use("wbthomason/packer.nvim")
+	use('wbthomason/packer.nvim')
 	-- THEME and basics utils (comments, auto-pairs...)
     use 'rebelot/kanagawa.nvim'
     use 'folke/tokyonight.nvim'
@@ -30,19 +30,22 @@ return require("packer").startup(function(use)
 	use({ 'jiangmiao/auto-pairs' })
 
 	-- TREESITTER
-	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
+	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
 	-- TELESCOPE
 	use({
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.2",
-		requires = { { "nvim-lua/plenary.nvim" } },
+		'nvim-telescope/telescope.nvim',
+		tag = '0.1.2',
+		requires = { { 'nvim-lua/plenary.nvim' } },
 	})
 
+    -- FLOATTERM
+    use 'voldikss/vim-floaterm'
+
 	-- BARBAR
-	use("nvim-tree/nvim-web-devicons") -- OPTIONAL: for file icons
-	use("lewis6991/gitsigns.nvim") -- OPTIONAL: for git status
-	use("romgrk/barbar.nvim")
+	use('nvim-tree/nvim-web-devicons') -- OPTIONAL: for file icons
+	use('lewis6991/gitsigns.nvim') -- OPTIONAL: for git status
+	use('romgrk/barbar.nvim')
 
     use {
         'nvim-tree/nvim-tree.lua',
@@ -51,40 +54,49 @@ return require("packer").startup(function(use)
         },
     }
 
-	-- Rust LSP configuration
-	use("neovim/nvim-lspconfig")
-	use("simrat39/rust-tools.nvim")
-	use("nvim-lua/plenary.nvim")
-	use("mfussenegger/nvim-dap")
-
     -- LSP
     use 'williamboman/mason.nvim'
-
+    use 'williamboman/mason-lspconfig.nvim'
+	use('neovim/nvim-lspconfig')
+	use('simrat39/rust-tools.nvim')
+	use('nvim-lua/plenary.nvim')
+	use('mfussenegger/nvim-dap')
+    -- Completion framework:
+    use 'hrsh7th/nvim-cmp'
+    -- LSP completion source:
+    use 'hrsh7th/cmp-nvim-lsp'
+    -- Useful completion sources:
+    use 'hrsh7th/cmp-nvim-lua'
+    use 'hrsh7th/cmp-nvim-lsp-signature-help'
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/vim-vsnip'
+    use 'puremourning/vimspector'
     -- Neoterm
     use 'kassio/neoterm'
 
 	-- HOP
 	use({
-		"phaazon/hop.nvim",
-		branch = "v2", -- optional but strongly recommended
+		'phaazon/hop.nvim',
+		branch = 'v2', -- optional but strongly recommended
 		config = function()
 			-- you can configure Hop the way you like here; see :h hop-config
-			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
+			require('hop').setup({ keys = 'etovxqpdygfblzhckisuran' })
 		end,
 	})
 
 	-- NVIM TMUX
-	use({ "alexghergh/nvim-tmux-navigation" })
+	use({ 'alexghergh/nvim-tmux-navigation' })
 
     -- Markdown preview
     use({
-        "iamcco/markdown-preview.nvim",
-        run = function() vim.fn["mkdp#util#install"]() end,
+        'iamcco/markdown-preview.nvim',
+        run = function() vim.fn['mkdp#util#install']() end,
     })
 
-use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
-	-- Automatically set up your configuration after cloning packer.nvim
+    -- Automatically set up your configuration after cloning packer.nvim
 	if packer_bootstrap then
-		require("packer").sync()
+		require('packer').sync()
 	end
 end)

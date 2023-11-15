@@ -30,6 +30,9 @@ export QT_STYLE_OVERRIDE=adwaita-dark
 export PNPM_HOME="/home/agape/.local/share/pnpm"
 export PATH="$HOME/dotfiles/bin:$PNPM_HOME:$PATH"
 
+# K8S stuff
+alias "k"="kubectl"
+
 alias "checksec"="/home/agape/sources/checksec.sh/checksec"
 alias "aslr_off"="echo 0 | sudo tee /proc/sys/kernel/randomize_va_space"
 alias "aslr_on"="echo 2 | sudo tee /proc/sys/kernel/randomize_va_space"
