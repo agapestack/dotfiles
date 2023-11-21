@@ -24,7 +24,8 @@ map('n', '<S-l>', '<Cmd>BufferNext<CR>', opts)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
-map('n', '<leader>g', ":NvimTreeToggle<CR>")
+map('n', '<C-f>', ":NvimTreeToggle<CR>")
+map('n', '<C-g>', ":NvimTreeFocus<CR>")
 -- :NvimTreeToggle
 -- :NvimTreeFocus
 
