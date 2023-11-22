@@ -19,8 +19,18 @@ map('t', "<Esc>", "<C-\\><C-n>:q<CR>")
 -- BARBAR
 map('n', '<S-h>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<S-l>', '<Cmd>BufferNext<CR>', opts)
+map('n', '<A-1>', '<Cmd>BufferGoto1<CR>')
+map('n', '<A-2>', '<Cmd>BufferGoto2<CR>')
+map('n', '<A-3>', '<Cmd>BufferGoto3<CR>')
+map('n', '<A-4>', '<Cmd>BufferGoto4<CR>')
+map('n', '<A-5>', '<Cmd>BufferGoto5<CR>')
+map('n', '<A-6>', '<Cmd>BufferGoto6<CR>')
+map('n', '<A-7>', '<Cmd>BufferGoto7<CR>')
+map('n', '<A-8>', '<Cmd>BufferGoto8<CR>')
+map('n', '<A-9>', '<Cmd>BufferGoto9<CR>')
+map('n', '<A-0>', '<Cmd>BufferLast<CR>')
+map('n', '<A-c>', '<Cmd>BufferClose<CR>')
 
--- NVIM-TREE
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
@@ -46,11 +56,7 @@ end, {remap=true})
 -- end, {remap=true})
 
 -- TELESCOPE
-local telescope = require('telescope.builtin')
-vim.keymap.set('n', '<leader>f', telescope.find_files, {}) -- find
-vim.keymap.set('n', '<leader>p', function()
-  builtin.grep_string({search = vim.fn.input("Grep > ") });
-end) -- search Project file with grep
--- vim.keymap.set('n', '<leader>g', builtin.git_files, {}) -- search in the Git project files name
--- vim.keymap.set('n', '<leader>h', builtin.help_tags, {})
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 

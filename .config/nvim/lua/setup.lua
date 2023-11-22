@@ -66,4 +66,3 @@ require("formatter").setup {
   }
 }
 
-
