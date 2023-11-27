@@ -30,10 +30,19 @@ require("nvim-tree").setup({
 })
 
 -- LSP
-require'lspconfig'.pyright.setup{}
+local lspconfig = require('lspconfig')
+lspconfig.pyright.setup{}
 
 -- Mason
-require("mason").setup()
+require("mason").setup({})
+require('mason-lspconfig').setup({
+    ensure_installed = { 'rust_analyzer' }
+})
+require('mason-lspconfig').setup_handlers({
+  function(server)
+    lspconfig[server].setup({})
+  end,
+})
 
 -- rust-tools
 local rt = require('rust-tools')
