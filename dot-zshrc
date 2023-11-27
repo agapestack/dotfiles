@@ -2,6 +2,15 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 export ZSH="$HOME/.oh-my-zsh"
 
+# autocompletion
+autoload -Uz compinit
+compinit
+
+# K8S stuff
+alias "k"="kubectl"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+	[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
 export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin
 export EDITOR='nvim'
 export VISUAL='nvim'
@@ -31,7 +40,6 @@ export PNPM_HOME="/home/agape/.local/share/pnpm"
 export PATH="$HOME/dotfiles/bin:$PNPM_HOME:$PATH"
 
 # K8S stuff
-alias "k"="kubectl"
 
 alias "checksec"="/home/agape/sources/checksec.sh/checksec"
 alias "aslr_off"="echo 0 | sudo tee /proc/sys/kernel/randomize_va_space"
