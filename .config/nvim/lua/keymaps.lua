@@ -12,6 +12,12 @@ vim.opt.termguicolors = true
 -- SPELL CHECK
 map("n", "<F2>", ":set spell!<cr>")
 
+-- EDITORCONFIG
+
+-- Quick editor configuration --> when not using a .editorconfig
+map('n', '<leader>4', '<Cmd>:set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>')
+map('n', '<leader>2', '<Cmd>:set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>')
+
 -- FLOATERM
 map('n', "t", ":FloatermToggle myfloat<CR>")
 map('t', "<Esc>", "<C-\\><C-n>:q<CR>")
