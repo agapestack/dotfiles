@@ -65,6 +65,7 @@ return require('packer').startup(function(use)
     use 'hrsh7th/nvim-cmp'
     -- LSP completion source:
     use 'hrsh7th/cmp-nvim-lsp'
+    use 'towolf/vim-helm'
     -- Useful completion sources:
     use 'hrsh7th/cmp-nvim-lua'
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
