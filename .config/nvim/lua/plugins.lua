@@ -61,6 +61,8 @@ return require('packer').startup(function(use)
 	use('simrat39/rust-tools.nvim')
 	use('nvim-lua/plenary.nvim')
 	use('mfussenegger/nvim-dap')
+    -- lsp signature
+    use 'ray-x/lsp_signature.nvim'
     -- Completion framework:
     use 'hrsh7th/nvim-cmp'
     -- LSP completion source:
