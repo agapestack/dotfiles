@@ -16,6 +16,9 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export GOPATH='/usr/local/go'
 
+# Valgrind
+export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
+
 # display export
 export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_QPA_PLATFORM=wayland
