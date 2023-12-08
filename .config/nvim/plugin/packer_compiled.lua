@@ -135,6 +135,11 @@ _G.packer_plugins = {
     path = "/home/agape/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
     url = "https://github.com/rebelot/kanagawa.nvim"
   },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/home/agape/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
+    url = "https://github.com/ray-x/lsp_signature.nvim"
+  },
   ["markdown-preview.nvim"] = {
     loaded = true,
     path = "/home/agape/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
@@ -244,6 +249,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/agape/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
     url = "https://github.com/airblade/vim-gitgutter"
+  },
+  ["vim-helm"] = {
+    loaded = true,
+    path = "/home/agape/.local/share/nvim/site/pack/packer/start/vim-helm",
+    url = "https://github.com/towolf/vim-helm"
   },
   ["vim-sandwich"] = {
     loaded = true,
