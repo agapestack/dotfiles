@@ -1,6 +1,6 @@
-# vim: ts=4 sw=4 et
 input * {
-    xkb_layout "fr"
+    xkb_layout us,fr
+    xkb_options grp:alt_shift_toggle
 }
 
 # PATHS
