@@ -56,7 +56,6 @@ install-powerlevel: ## install powerlevel10K
 ## ZSH plugins
 install-zsh-plugins: ## install zsh plugins : zsh-syntax-highlighting, 
 	yay -S zsh-syntax-highlighting-git
-	sudo echo "source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 
 
 install-font: ## shit-ton of fonts
