@@ -18,6 +18,7 @@ link: ## run stow to create symlinks
 
 install-theme:	## install terminal theme
 	make install-powerlevel
+	make install-zsh-plugins
 
 ## SYSTEM
 install-yay: ## install yay
@@ -51,6 +52,12 @@ install-addons: ## neofetch
 ## THEME
 install-powerlevel: ## install powerlevel10K
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
+
+## ZSH plugins
+install-zsh-plugins: ## install zsh plugins : zsh-syntax-highlighting, 
+	yay -S zsh-syntax-highlighting-git
+	sudo echo "source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+
 
 install-font: ## shit-ton of fonts
 	sudo pacman -S adobe-source-code-pro-fonts otf-font-awesome ttf-font-awesome ttf-roboto-mono-nerd ttf-jetbrains-mono ttf-liberation ttf-droid nerd-fonts
