@@ -5,65 +5,42 @@ WHITE  := $(shell tput -Txterm setaf 7)
 CYAN   := $(shell tput -Txterm setaf 6)
 RESET  := $(shell tput -Txterm sgr0)
 
-USERNAME="agape"
-
-.PHONY: link install-theme install-yay install-asdf install-rust install-tools install-fonts install-term uninstall-src install-powerlevel install-addons install-yubikey install-utils
+.PHONY: link install-core install-kde uninstall-src basic asdf yay zsh rust help
 
 all: help
 
-## GLOBAL MACRO
+## GLOBAL
 link: ## run stow to create symlinks
 	cd ~
 	stow -d ~/dotfiles -t ~ --dotfiles . --ignore='^README.*' --ignore='Makefile' --ignore='etc/' --ignore='img/'
 
-install-theme:	## install terminal theme
-	make install-powerlevel
-	make install-zsh-plugins
+install-core: basic yay zsh rust ## basic yay zsh rust
 
-## SYSTEM
-install-yay: ## install yay
-	sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+install-kde: ## plasma-desktop sddm sddm-kcm konsole
+	sudo pacman -S plasma-desktop sddm{,-kcm} konsole
 
-install-asdf: ## install asdf
-	cd ~
-	git clone https://aur.archlinux.org/asdf-vm.git && cd asdf-vm && makepkg -si
-	cd dotfiles
-
-install-rust: ## install rustup
-	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-install-tools: install-rust ## pkg-config curl git lua wl-clipboard neovim xsel ripgrep
-	sudo pacman -S pkg-config curl git lua wl-clipboard neovim xsel ripgrep
-	cargo install stylua
-
-install-term: ## zsh zsh-completions alacritty tmux
-	yay -S zsh zsh-completions tmux
-
-## UTILS
-install-utils: ## firefox
-	sudo pacman -S firefox
-
-install-yubikey: ## yubikey-manager libfido2
-	sudo pacman -S yubikey-manager libfido2
-
-install-addons: ## neofetch
-	sudo pacman -S neofetch
-
-## THEME
-install-powerlevel: ## install powerlevel10K
-	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
-
-## ZSH plugins
-install-zsh-plugins: ## install zsh plugins : zsh-syntax-highlighting, 
-	yay -S zsh-syntax-highlighting-git
-
-
-install-font: ## shit-ton of fonts
-	sudo pacman -S adobe-source-code-pro-fonts otf-font-awesome ttf-font-awesome ttf-roboto-mono-nerd ttf-jetbrains-mono ttf-liberation ttf-droid nerd-fonts
-
-## UNINSTALL
 uninstall-src: ## remove $HOME/dotfiles/src folder
 	rm -rf "${HOME}/dotfiles/src"
+	
+## INSTALL
+basic: ## pkg-config curl git lua neofetch vim
+	sudo pacman -S pkg-config curl git lua neo{fetch,vim}
+
+asdf: ## asdf
+	git clone https://aur.archlinux.org/asdf-vm.git ${HOME} && (cd ${HOME}/asdf-vm && makepkg -si)
+
+yay: ## yay
+	sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+
+zsh: yay ## zsh zsh-completions tmux zsh-syntax-highlighting-git prezto
+	yay -S zsh zsh-completions tmux zsh-syntax-highlighting-git
+	git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+
+tldr: ## tldr
+	yay -S tldr
+
+rust: basic ## install rustup
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 ## HELP
 help: ## Show this help.
