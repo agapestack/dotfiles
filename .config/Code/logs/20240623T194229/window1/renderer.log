@@ -1,3 +1,0 @@
-2024-06-23 19:42:30.212 [info] Initial editor state {"filesToOpenOrCreate":[{"fileUri":{"$mid":1,"path":"/home/agape/Downloads/ascii-art.txt","scheme":"file"},"type":1,"exists":true,"options":{}}],"filesToDiff":[],"filesToMerge":[]}
-2024-06-23 19:42:30.715 [info] Started local extension host with pid 36369.
-2024-06-23 19:42:33.585 [info] [perf] Render performance baseline is 170ms
