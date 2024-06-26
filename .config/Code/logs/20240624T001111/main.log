@@ -1,0 +1,9 @@
+2024-06-24 00:11:11.753 [info] update#setState idle
+2024-06-24 00:11:41.761 [info] update#setState checking for updates
+2024-06-24 00:11:41.802 [info] update#setState idle
+2024-06-24 00:12:56.225 [info] Extension host with pid 3684 exited with code: 15, signal: unknown.
+2024-06-24 00:12:56.228 [error] [UtilityProcess id: 1, type: extensionHost, pid: 3684]: crashed with code 15 and reason 'killed'
+2024-06-24 00:12:56.242 [error] CodeWindow: renderer process gone (reason: clean-exit, code: <unknown>)
+2024-06-24 00:12:56.279 [error] [UtilityProcess type: shared-process, pid: 3659]: crashed with code 15 and reason 'killed'
+2024-06-24 00:12:56.283 [error] [UtilityProcessWorker]: terminated unexpectedly with code 15, signal: unknown
+2024-06-24 00:12:56.283 [error] [UtilityProcess id: 1, type: fileWatcher, pid: 3660]: crashed with code 15 and reason 'killed'

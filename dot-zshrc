@@ -2,6 +2,9 @@
 autoload -Uz compinit
 compinit
 
+# theme
+eval "$(starship init zsh)"
+
 # display export
 export GDK_BACKEND=wayland
 export GDK_DPI_SCALE=1
@@ -68,4 +71,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
