@@ -12,4 +12,11 @@ plasma*
 spotify
 session
 *rc
-
+QtProject.conf
+Trolltech.conf
+user*
+starship.toml
+kwin*
+kcmfonts
+konsole*
+kde*
