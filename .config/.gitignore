@@ -1,3 +1,5 @@
+discord*
+pulse*
 asdf-direnv
 autostart
 BetterDiscord
@@ -19,4 +21,5 @@ starship.toml
 kwin*
 kcmfonts
 konsole*
-kde*
+kde* 
+Mullvad*
