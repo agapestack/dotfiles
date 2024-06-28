@@ -1,32 +1,7 @@
 # autocompletion
 autoload -Uz compinit
 compinit
-
-# theme
 eval "$(starship init zsh)"
-
-# display export
-export GDK_BACKEND=wayland
-export GDK_DPI_SCALE=1
-export MOZ_ENABLE_WAYLAND=1
-export MOZ_DBUS_REMOTE=1
-export GTK_THEME=Adwaita:dark
-export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
-export QT_STYLE_OVERRIDE=adwaita-dark
-export QT_SCALE_FACTOR=1
-export QT_QPA_PLATFORMTHEME=qt5ct
-export QT_QPA_PLATFORM=wayland
-
-# pnpm
-export PNPM_HOME="/home/agape/.local/share/pnpm"
-export PATH="$HOME/dotfiles/bin:$PNPM_HOME:$PATH"
-
-# K8S stuff
-
-alias "checksec"="/home/agape/sources/checksec.sh/checksec"
-alias "aslr_off"="echo 0 | sudo tee /proc/sys/kernel/randomize_va_space"
-alias "aslr_on"="echo 2 | sudo tee /proc/sys/kernel/randomize_va_space"
-alias "aslr_status"="cat /proc/sys/kernel/randomize_va_space"
 
 alias "vim"="nvim"
 alias "vi"="vim"
@@ -37,8 +12,8 @@ export PATH="$PATH:/home/agape/.local/bin"
 
 # zsh plugins
 plugins=(
-	git
-	asdf
+    git
+    asdf
     dotenv
 )
 
