@@ -55,8 +55,8 @@ spotify: ## spotify
 audio: ## plasma-pa pulseaudio pulseaudio-alsa pulseaudio-bluetooth
 	yay -S plasma-pa pulseaudio pulseaudio-alsa pulseaudio-bluetooth
 
-media: ## vlc feh
-	sudo pacman -S vlc feh
+media: ## vlc gwenview
+	sudo pacman -S vlc gwenview
 
 rust: basic ## install rustup
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
