@@ -1,8 +1,8 @@
-discord*
 pulse*
 asdf-direnv
 autostart
 BetterDiscord
+discord
 Code
 direnv
 fontconfig
@@ -23,3 +23,5 @@ kcmfonts
 konsole*
 kde* 
 Mullvad*
+libaccounts-glib
+mimeapps.list
