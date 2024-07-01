@@ -1,7 +1,7 @@
 # autocompletion
 autoload -Uz compinit
 compinit
-# eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 
 alias "vim"="nvim"
 alias "vi"="vim"

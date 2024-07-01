@@ -19,14 +19,12 @@ install-core: basic yay zsh rust ## basic yay zsh rust
 install-kde: ## plasma-desktop kdeplasma-addons sddm sddm-kcm plasma-framework5 dolphin bluedevil kscreen
 	sudo pacman -S plasma-desktop kdeplasma-addons sddm{,-kcm} plasma-framework5 dolphin bluedevil kscreen
 
-
-
 uninstall-src: ## remove $HOME/dotfiles/src folder
 	rm -rf "${HOME}/dotfiles/src"
 	
 ## INSTALL
 basic: ## pkg-config curl git lua neofetch vim kitty
-	sudo pacman -S pkg-config curl git lua neo{fetch,vim} kitty
+	sudo pacman -S pkg-config curl git lua neo{fetch,vim} kitty starship
 
 asdf: ## asdf direnv nodejs
 	git clone https://aur.archlinux.org/asdf-vm.git ${HOME} && (cd ${HOME}/asdf-vm && makepkg -si)
