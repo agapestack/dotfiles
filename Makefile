@@ -5,7 +5,7 @@ WHITE  := $(shell tput -Txterm setaf 7)
 CYAN   := $(shell tput -Txterm setaf 6)
 RESET  := $(shell tput -Txterm sgr0)
 
-.PHONY: link install-core install-kde uninstall-src basic asdf typescript yay zsh tldr spotify audio rust help
+.PHONY: link install-core install-kde uninstall-src basic asdf typescript yay zsh tldr spotify media audio rust help
 
 all: help
 
@@ -54,6 +54,9 @@ spotify: ## spotify
 
 audio: ## plasma-pa pulseaudio pulseaudio-alsa pulseaudio-bluetooth
 	yay -S plasma-pa pulseaudio pulseaudio-alsa pulseaudio-bluetooth
+
+media: ## vlc feh
+	sudo pacman -S vlc feh
 
 rust: basic ## install rustup
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
