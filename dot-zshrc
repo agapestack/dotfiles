@@ -9,6 +9,8 @@ alias "vi"="vim"
 source /opt/asdf-vm/asdf.sh
 
 export PATH="$PATH:/home/agape/.local/bin"
+export TERM=xterm-256color
+export QT_QPA_PLATFORM=xcb
 
 # zsh plugins
 plugins=(
