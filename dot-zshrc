@@ -47,6 +47,19 @@ function copy_makefile() {
     fi
 }
 
+alias initNotebook="init_notebook"
+function init_notebook() {
+    local template_file="$HOME/dotfiles/templates/init.ipynb"
+    local current_dir="$(pwd)"
+
+    if [ -f "$template_file" ]; then
+        cp "$template_file" "$current_dir"
+        echo "Template Notebook copied to $(basename "$current_dir")"
+    else
+        echo "Template Notebook not found at $template_file"
+    fi
+}
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/agape/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
