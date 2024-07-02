@@ -1,7 +1,6 @@
 # autocompletion
 autoload -Uz compinit
 compinit
-eval "$(starship init zsh)"
 
 alias "vim"="nvim"
 alias "vi"="vim"
@@ -34,6 +33,20 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 
+# FUNCTIONS
+alias initMakefile="copy_makefile"
+function copy_makefile() {
+    local template_file="$HOME/dotfiles/templates/Makefile"
+    local current_dir="$(pwd)"
+
+    if [ -f "$template_file" ]; then
+        cp "$template_file" "$current_dir"
+        echo "Makefile copied to $(basename "$current_dir")"
+    else
+        echo "Template Makefile not found at $template_file"
+    fi
+}
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/agape/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -48,3 +61,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+eval "$(starship init zsh)"
+
