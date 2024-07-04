@@ -134,7 +134,7 @@ ForegroundVisited=202, 158, 230
 
 [DirSelect Dialog]
 DirSelectDialog Size=840,582
-History Items[$e]=file:$HOME/Downloads,file:$HOME/dotfiles/.config/nvim
+History Items[$e]=file:$HOME/Downloads/Python_Practice,file:$HOME/Downloads,file:$HOME/dotfiles/.config/nvim
 
 [General]
 ColorSchemeHash=fde2b0bd662c9cb4564ef8334bf1203f3bd9fa7b
