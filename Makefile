@@ -16,8 +16,8 @@ link: ## run stow to create symlinks
 
 install-core: basic yay zsh rust ## basic yay zsh rust
 
-install-kde: ## plasma-desktop kdeplasma-addons sddm sddm-kcm plasma-framework5 dolphin bluedevil kscreen
-	sudo pacman -S plasma-desktop kdeplasma-addons sddm{,-kcm} plasma-framework5 dolphin bluedevil kscreen
+install-kde: ## plasma-desktop kdeplasma-addons sddm sddm-kcm dolphin bluedevil kscreen spectacle
+	sudo pacman -S plasma-desktop kdeplasma-addons sddm{,-kcm} dolphin bluedevil kscreen spectacle
 
 uninstall-src: ## remove $HOME/dotfiles/src folder
 	rm -rf "${HOME}/dotfiles/src"
