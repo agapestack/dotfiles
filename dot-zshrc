@@ -1,12 +1,19 @@
 # autocompletion
-autoload -Uz compinit
-compinit
+if command -v autoload &> /dev/null; then
+    autoload -Uz compinit
+    compinit
+fi
 
-alias "vim"="nvim"
-alias "vi"="vim"
+# Aliases
+alias vim="nvim"
+alias vi="vim"
 
-source /opt/asdf-vm/asdf.sh
+# asdf version manager
+if [ -f /opt/asdf-vm/asdf.sh ]; then
+  . /opt/asdf-vm/asdf.sh
+fi
 
+# Environment variables
 export PATH="$PATH:/home/agape/.local/bin"
 export TERM=xterm-256color
 export QT_QPA_PLATFORM=xcb
@@ -18,24 +25,27 @@ plugins=(
     dotenv
 )
 
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# Shell parameter substitution and comments
+setopt prompt_subst interactive_comments
 
+# zsh syntax highlighting
 if [[ -s "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
   source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
 
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search
-bindkey "^[[B" down-line-or-beginning-search
+# Key bindings for history search
+if command -v autoload &> /dev/null; then
+    autoload -Uz up-line-or-beginning-search
+    autoload -Uz down-line-or-beginning-search
+    zle -N up-line-or-beginning-search
+    zle -N down-line-or-beginning-search
+    bindkey "^[[A" up-line-or-beginning-search
+    bindkey "^[[B" down-line-or-beginning-search
+fi
 
-# FUNCTIONS
+# Functions and aliases
 alias initMakefile="copy_makefile"
-function copy_makefile() {
+copy_makefile() {
     local template_file="$HOME/dotfiles/templates/Makefile"
     local current_dir="$(pwd)"
 
@@ -48,7 +58,7 @@ function copy_makefile() {
 }
 
 alias initNotebook="init_notebook"
-function init_notebook() {
+init_notebook() {
     local template_file="$HOME/dotfiles/templates/init.ipynb"
     local current_dir="$(pwd)"
 
@@ -75,5 +85,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-eval "$(starship init zsh)"
+# Initialize starship prompt
+if command -v starship &> /dev/null; then
+    eval "$(starship init zsh)"
+fi
 

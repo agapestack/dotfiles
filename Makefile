@@ -38,9 +38,8 @@ typescript: yay ## typescript
 yay: ## yay
 	sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 
-zsh: yay ## zsh zsh-completions tmux zsh-syntax-highlighting-git prezto starship
+zsh: yay ## zsh zsh-completions tmux zsh-syntax-highlighting-git starship
 	yay -S zsh zsh-completions tmux zsh-syntax-highlighting-git
-	git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 	curl -sS https://starship.rs/install.sh | sh
 
 
