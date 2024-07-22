@@ -1,3 +1,5 @@
+add_newline = true
+
 [aws]
 symbol = "  "
 
@@ -8,8 +10,8 @@ symbol = " "
 symbol = " "
 
 [conda]
-format = '[$symbol$environment](dimmed green) '
 symbol = " "
+ignore_base = false
 
 [crystal]
 symbol = " "
