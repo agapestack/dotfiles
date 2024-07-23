@@ -79,6 +79,7 @@ unset key
 # Aliases
 alias vim="nvim"
 alias vi="vim"
+alias open="kde-open"
 
 # Environment variables
 export PATH="$PATH:/home/agape/.local/bin"
