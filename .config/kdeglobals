@@ -138,7 +138,7 @@ History Items[$e]=file:$HOME/Workspace,file:$HOME/Downloads/TwitchNoSub,file:$HO
 
 [General]
 BrowserApplication=google-chrome.desktop
-ColorSchemeHash=fde2b0bd662c9cb4564ef8334bf1203f3bd9fa7b
+ColorSchemeHash=2b89368eeb026ada6222108a1f01010ec71abde3
 TerminalApplication=kitty
 TerminalService=kitty.desktop
 XftAntialias=true

@@ -38,10 +38,9 @@ typescript: yay ## typescript
 yay: ## yay
 	sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 
-zsh: yay ## zsh zsh-completions tmux zsh-syntax-highlighting-git starship chezmoi
+zsh: yay ## zsh zsh-completions tmux zsh-syntax-highlighting-git starship
 	yay -S zsh zsh-completions tmux zsh-syntax-highlighting-git
 	curl -sS https://starship.rs/install.sh | sh
-	pacman -S chezmoi
 
 
 tldr: ## tldr
