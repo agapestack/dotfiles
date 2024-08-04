@@ -24,6 +24,8 @@ zmodule archive
 zmodule asdf
 # Manages all python venvs in one place.
 zmodule pvenv
+# All kubectl aliases in one function
+k
 
 #
 # Prompt
