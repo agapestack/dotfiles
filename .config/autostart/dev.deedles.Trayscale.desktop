@@ -1,0 +1,13 @@
+[Desktop Entry]
+Categories=System;GNOME;GTK;
+Comment=An unofficial GUI interface for the Tailscale daemon.
+Exec=trayscale
+GenericName=Tailscale Client
+Icon=dev.deedles.Trayscale
+Keywords=tailscale;vpn;
+Name=Trayscale
+SingleMainWindow=true
+Terminal=false
+Type=Application
+Version=1.0
+X-GNOME-UsesNotifications=true

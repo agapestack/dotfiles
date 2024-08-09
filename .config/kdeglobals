@@ -134,7 +134,7 @@ ForegroundVisited=198, 160, 246
 
 [DirSelect Dialog]
 DirSelectDialog Size=1280,720
-History Items[$e]=file:$HOME/Workspace,file:$HOME/Downloads/TwitchNoSub,file:$HOME/Downloads/Python_Practice,file:$HOME/Downloads,file:$HOME/dotfiles/.config/nvim
+History Items[$e]=file:$HOME/Downloads/agap-dashboard,file:$HOME/Workspace,file:$HOME/Downloads/TwitchNoSub,file:$HOME/Downloads/Python_Practice,file:$HOME/Downloads,file:$HOME/dotfiles/.config/nvim
 
 [General]
 BrowserApplication=google-chrome.desktop
