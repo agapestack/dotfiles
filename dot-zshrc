@@ -85,6 +85,7 @@ alias open="kde-open"
 export PATH="$PATH:/home/agape/.local/bin"
 export TERM=xterm-256color
 export QT_QPA_PLATFORM=xcb
+export XDG_CONFIG_HOME=$HOME/.config
 
 # Functions and aliases
 alias initMakefile="copy_makefile"
