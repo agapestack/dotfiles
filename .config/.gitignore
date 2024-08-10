@@ -1,20 +1,11 @@
-pulse*
-balenaEtcher
-discord
-Code
-BetterDiscord
-asdf-direnv
-direnv
-fontconfig
-gtk*
-spotify
-*rc
-QtProject.conf
-Trolltech.conf
-user*
-Mullvad*
-libaccounts-glib
-mimeapps.list
-signond*
-google-chrome*
-kde.org
+# Ignore everything in the current directory
+*
+
+# Unignore specific files
+!starship.toml
+
+# Unignore specific directories and all their contents
+!kitty/
+!konsave/
+!tmux/
+!nvim/
