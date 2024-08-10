@@ -5,7 +5,7 @@ WHITE  := $(shell tput -Txterm setaf 7)
 CYAN   := $(shell tput -Txterm setaf 6)
 RESET  := $(shell tput -Txterm sgr0)
 
-.PHONY: link install-core install-kde uninstall-src basic asdf typescript yay zsh tldr spotify media audio rust help
+.PHONY: link install-core install-kde install-konsave uninstall-src basic asdf typescript yay zsh tldr spotify media audio rust help
 
 all: help
 
@@ -19,9 +19,12 @@ install-core: basic yay zsh rust ## basic yay zsh rust
 install-kde: ## plasma-desktop kdeplasma-addons sddm sddm-kcm dolphin bluedevil kscreen spectacle
 	sudo pacman -S plasma-desktop kdeplasma-addons sddm{,-kcm} dolphin bluedevil kscreen spectacle
 
+install-konsave: ## konsave: backup kde setup
+	python -m pip install konsave
+
 uninstall-src: ## remove $HOME/dotfiles/src folder
 	rm -rf "${HOME}/dotfiles/src"
-	
+
 ## INSTALL
 basic: ## pkg-config curl git lua neofetch vim kitty
 	sudo pacman -S pkg-config curl git lua neo{fetch,vim} kitty starship
