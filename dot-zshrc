@@ -88,7 +88,7 @@ export QT_QPA_PLATFORM=xcb
 export XDG_CONFIG_HOME=$HOME/.config
 
 # Functions and aliases
-alias initMakefile="copy_makefile"
+alias init-makefile="copy_makefile"
 copy_makefile() {
     local template_file="$HOME/dotfiles/templates/Makefile"
     local current_dir="$(pwd)"
@@ -101,7 +101,7 @@ copy_makefile() {
     fi
 }
 
-alias initNotebook="init_notebook"
+alias init-notebook="init_notebook"
 init_notebook() {
     local template_file="$HOME/dotfiles/templates/init.ipynb"
     local current_dir="$(pwd)"
@@ -112,6 +112,23 @@ init_notebook() {
     else
         echo "Template Notebook not found at $template_file"
     fi
+}
+
+alias public-ip="print_public_ip"
+print_public_ip() {
+    response=$(curl -s http://ip-api.com/json/)
+
+    ip=$(echo $response | jq -r '.query')
+    country=$(echo $response | jq -r '.country')
+    region=$(echo $response | jq -r '.regionName')
+    city=$(echo $response | jq -r '.city')
+    isp=$(echo $response | jq -r '.isp')
+
+    echo "Public IP: $ip"
+    echo "Country: $country"
+    echo "Region: $region"
+    echo "City: $city"
+    echo "ISP: $isp"
 }
 
 # >>> conda initialize >>>
@@ -131,3 +148,6 @@ unset __conda_setup
 # fi
 
 eval "$(starship init zsh)"
+
+# vim: set tabstop=4 shiftwidth=4 expandtab:
+
