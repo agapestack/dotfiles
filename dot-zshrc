@@ -80,6 +80,7 @@ unset key
 alias vim="nvim"
 alias vi="vim"
 alias open="kde-open"
+alias k='kubectl'
 
 # Environment variables
 export PATH="$PATH:/home/agape/.local/bin"
