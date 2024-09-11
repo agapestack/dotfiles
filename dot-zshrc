@@ -153,7 +153,5 @@ unset __conda_setup
 # <<< conda initialize <<<
 # fi
 
-eval "$(starship init zsh)"
-
 # vim: set tabstop=4 shiftwidth=4 expandtab:
 
