@@ -20,7 +20,21 @@ SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 WORDCHARS=${WORDCHARS//[\/]}
 
 # -------------------------------------------
-# Zim Framework Initialization (Can be before Powerlevel10k if no console I/O)
+# SSH Agent
+# -------------------------------------------
+
+# Start SSH agent automatically and add ed25519 key
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    eval "$(ssh-agent -s)" > /dev/null
+fi
+
+# Automatically add the ed25519 key if it's not already added
+if ! ssh-add -l | grep -q "ed25519"; then
+    ssh-add ~/.ssh/id_ed25519
+fi
+
+# -------------------------------------------
+# Zim Framework Initialization
 # -------------------------------------------
 ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
