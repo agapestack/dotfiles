@@ -1,45 +1,28 @@
-# -----------------
-# Zsh General Configuration
-# -----------------
+# -------------------------------------------
+# Powerlevel10k Initialization (Keep at the top)
+# -------------------------------------------
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-# Remove older command from the history if a duplicate is to be added.
+# Powerlevel10k theme initialization
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source $HOME/.powerlevel10k/powerlevel10k.zsh-theme
+
+# -------------------------------------------
+# General Zsh Configuration
+# -------------------------------------------
 setopt HIST_IGNORE_ALL_DUPS
-# Set editor default keymap to emacs (`-e`) or vi (`-v`)
 bindkey -v
-# Prompt for spelling correction of commands.
 setopt CORRECT
-# Customize spelling correction prompt.
 SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
-# Remove path separator from WORDCHARS.
 WORDCHARS=${WORDCHARS//[\/]}
 
-# -----------------------
-# Zim Configuration Start
-# -----------------------
-
-# --------------------
-# Module configuration
-# --------------------
-
-# Append `../` to your input for each `.` you type after an initial `..`
-zstyle ':zim:input' double-dot-expand yes
-# Set a custom terminal title format using prompt expansion escape sequences.
-zstyle ':zim:termtitle' format '%1~'
-# zsh-autosuggestions
-ZSH_AUTOSUGGEST_MANUAL_REBIND=1
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
-
-# Customize the main highlighter styles. See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/main.md#how-to-tweak-it
-typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[comment]='fg=242'
-
-# ------------------
-# Initialize modules
-# ------------------
-
+# -------------------------------------------
+# Zim Framework Initialization (Can be before Powerlevel10k if no console I/O)
+# -------------------------------------------
 ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
-# Download zimfw plugin manager if missing.
 if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
   if (( ${+commands[curl]} )); then
     curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
@@ -49,46 +32,25 @@ if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
         https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
   fi
 fi
-# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
 if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
   source ${ZIM_HOME}/zimfw.zsh init -q
 fi
-# Initialize modules.
 source ${ZIM_HOME}/init.zsh
 
-# ------------------------------
-# Post-init module configuration
-# ------------------------------
-#
-bindkey '^R' history-incremental-search-backward
-bindkey '^S' history-incremental-search-forward
+# Zsh syntax highlighting and autosuggestions
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[comment]='fg=242'
 
-# zsh-history-substring-search
-zmodload -F zsh/terminfo +p:terminfo
-# Bind ^[[A/^[[B manually so up/down works both before and after zle-line-init
-for key ('^[[A' '^P' ${terminfo[kcuu1]}) bindkey ${key} history-substring-search-up
-for key ('^[[B' '^N' ${terminfo[kcud1]}) bindkey ${key} history-substring-search-down
-for key ('k') bindkey -M vicmd ${key} history-substring-search-up
-for key ('j') bindkey -M vicmd ${key} history-substring-search-down
-unset key
-
-# ---------------------
-# Zim Configuration End
-# ---------------------
-
-# Aliases
+# -------------------------------------------
+# Aliases and Functions
+# -------------------------------------------
 alias vim="nvim"
 alias vi="vim"
 alias open="kde-open"
 alias k='kubectl'
-
-# Environment variables
-export PATH="$PATH:/home/agape/.local/bin"
-export TERM=xterm-256color
-export QT_QPA_PLATFORM=xcb
-export XDG_CONFIG_HOME=$HOME/.config
-
-# Functions and aliases
 alias init-makefile="copy_makefile"
 copy_makefile() {
     local template_file="$HOME/dotfiles/templates/Makefile"
@@ -132,13 +94,24 @@ print_public_ip() {
     echo "ISP: $isp"
 }
 
-# Automatically start SSH agent on login
+# -------------------------------------------
+# Environment Variables
+# -------------------------------------------
+export PATH="$PATH:/home/agape/.local/bin"
+export TERM=xterm-256color
+export QT_QPA_PLATFORM=xcb
+export XDG_CONFIG_HOME=$HOME/.config
+
+# -------------------------------------------
+# Initialize SSH agent (Can produce output, so moved below)
+# -------------------------------------------
 if [ -z "$SSH_AUTH_SOCK" ]; then
     eval "$(ssh-agent -s)"
 fi
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
+# -------------------------------------------
+# Conda Initialization (This might produce console output)
+# -------------------------------------------
 __conda_setup="$('/home/agape/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
@@ -150,8 +123,11 @@ else
     fi
 fi
 unset __conda_setup
-# <<< conda initialize <<<
-# fi
 
-# vim: set tabstop=4 shiftwidth=4 expandtab:
+# -------------------------------------------
+# asdf Version Manager
+# -------------------------------------------
+# . "$HOME/.asdf/asdf.sh"
+fpath=(${ASDF_DIR}/completions $fpath)
+autoload -Uz compinit && compinit
 
