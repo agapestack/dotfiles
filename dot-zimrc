@@ -24,6 +24,8 @@ zmodule archive
 zmodule asdf
 # Manages all python venvs in one place.
 zmodule pvenv
+# Provides a convenient way to load ssh-agent.
+zmodule ssh
 
 #
 # Prompt
