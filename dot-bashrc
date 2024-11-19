@@ -1,7 +1,3 @@
-
-. "$HOME/.cargo/env"
-source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/bashrc"
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/agape/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
