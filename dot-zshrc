@@ -130,5 +130,4 @@ unset __conda_setup
 # -------------------------------------------
 # . "$HOME/.asdf/asdf.sh"
 fpath=(${ASDF_DIR}/completions $fpath)
-autoload -Uz compinit && compinit
 
