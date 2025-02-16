@@ -22,8 +22,6 @@ zmodule termtitle
 zmodule utility
 # Provides archive and unarchive functions for easy archive manipulation.
 zmodule archive
-# Sets up asdf, with auto install and optimized usage of the direnv plugin.
-zmodule asdf
 # Manages all python venvs in one place.
 zmodule pvenv
 # Provides a convenient way to load ssh-agent.

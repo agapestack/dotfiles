@@ -1,16 +1,4 @@
 # -------------------------------------------
-# Powerlevel10k Initialization (Keep at the top)
-# -------------------------------------------
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# Powerlevel10k theme initialization
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source $HOME/.powerlevel10k/powerlevel10k.zsh-theme
-
-# -------------------------------------------
 # General Zsh Configuration
 # -------------------------------------------
 setopt HIST_IGNORE_ALL_DUPS
@@ -126,8 +114,6 @@ fi
 unset __conda_setup
 
 # -------------------------------------------
-# asdf Version Manager
+# Node Version Manager 
 # -------------------------------------------
-# . "$HOME/.asdf/asdf.sh"
-fpath=(${ASDF_DIR}/completions $fpath)
-
+source /usr/share/nvm/init-nvm.sh
