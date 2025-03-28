@@ -43,8 +43,19 @@ alias k='kubectl'
 alias init-makefile="copy_makefile"
 
 # VastAI sync alias
-alias vastai-sync='echo "[VastSync] Uploading script..." && scp /home/agape/Compute/sync/vast-aws-sync.sh vastai-server:/root/vast-aws-sync.sh && echo "[VastSync] Running script on Vast..." && ssh vastai-server "bash /root/vast-aws-sync.sh"'
+alias vastai-sync='
+echo ""
+echo "🚀  \033[1;34mUploading sync script to Vast.ai...\033[0m"
+scp /home/agape/Compute/sync/vast-aws-sync.sh vastai-server:/root/vast-aws-sync.sh
 
+echo ""
+echo "⚙️   \033[1;34mRunning setup script on Vast.ai instance...\033[0m"
+ssh vastai-server "bash /root/vast-aws-sync.sh"
+
+echo ""
+echo "🔗  \033[1;32mConnecting to Vast.ai server at ~/compute...\033[0m"
+ssh vastai-server "cd ~/compute && exec bash"
+'
 copy_makefile() {
     local template_file="$HOME/dotfiles/templates/Makefile"
     local current_dir="$(pwd)"
