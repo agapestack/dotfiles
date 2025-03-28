@@ -41,6 +41,10 @@ alias vi="vim"
 alias open="kde-open"
 alias k='kubectl'
 alias init-makefile="copy_makefile"
+
+# VastAI sync alias
+alias vastsync='scp /home/agape/Compute/sync/vast-aws-sync.sh vastai-server:/root/vast-aws-sync.sh && ssh vastai-server "bash /root/vast-aws-sync.sh"'
+
 copy_makefile() {
     local template_file="$HOME/dotfiles/templates/Makefile"
     local current_dir="$(pwd)"
@@ -114,6 +118,7 @@ fi
 unset __conda_setup
 
 # -------------------------------------------
-# Node Version Manager 
+# Node Version Manager
 # -------------------------------------------
 source /usr/share/nvm/init-nvm.sh
+
