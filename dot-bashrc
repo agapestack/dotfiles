@@ -1,3 +1,6 @@
+# Minimal bash configuration - use zsh as default shell
+# This file exists mainly for compatibility
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/agape/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -14,3 +17,10 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 export TERM=xterm-256color
+export EDITOR=nvim
+export VISUAL=nvim
+
+# Switch to zsh if available and not already in zsh
+if [ -n "$BASH_VERSION" ] && [ -x "$(command -v zsh)" ] && [ "$SHELL" != "$(which zsh)" ]; then
+    exec zsh
+fi

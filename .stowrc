@@ -1,0 +1,8 @@
+# Stow configuration
+--target=$HOME
+--dotfiles
+--ignore='^README.*'
+--ignore='Makefile'
+--ignore='img/'
+--ignore='.git'
+--ignore='.stowrc'

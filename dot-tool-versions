@@ -1,2 +1,7 @@
-nodejs 22.3.0
-direnv 2.34.0
+# Node.js LTS version (managed by nvm)
+# Run: nvm install --lts && nvm use --lts
+nodejs lts/*
+
+# Python managed by conda/system package manager
+# Rust managed by rustup
+# Other tools installed via pacman/yay

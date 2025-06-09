@@ -42,16 +42,25 @@ alias open="kde-open"
 alias k='kubectl'
 alias init-makefile="copy_makefile"
 
-# VastAI sync alias
-alias vastai-sync='
-echo ""
-echo "🚀  \033[1;34mUploading sync script to Vast.ai...\033[0m"
-scp /home/agape/Compute/sync/vast-aws-sync.sh vastai-server:/root/vast-aws-sync.sh
+alias clean-pycache="find . -type d -name "__pycache__" -exec rm -r {} +"
 
-echo ""
-echo "⚙️   \033[1;34mRunning setup script on Vast.ai instance...\033[0m"
-ssh vastai-server "bash /root/vast-aws-sync.sh"
-'
+# VastAI aliases
+alias vastai='vastai_command'
+alias vastai-sync='vastai_sync_command'
+
+vastai_command() {
+    python -m vastai "$@"
+}
+
+vastai_sync_command() {
+    echo ""
+    echo "🚀  \033[1;34mUploading sync script to Vast.ai...\033[0m"
+    scp /home/agape/Compute/sync/vast-aws-sync.sh vastai-server:/root/vast-aws-sync.sh
+    
+    echo ""
+    echo "⚙️   \033[1;34mRunning setup script on Vast.ai instance...\033[0m"
+    ssh vastai-server "bash /root/vast-aws-sync.sh"
+}
 copy_makefile() {
     local template_file="$HOME/dotfiles/templates/Makefile"
     local current_dir="$(pwd)"
@@ -97,16 +106,27 @@ print_public_ip() {
 # -------------------------------------------
 # Environment Variables
 # -------------------------------------------
-export PATH="$PATH:/home/agape/.local/bin"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.npm-global/bin:$PATH"
 export TERM=xterm-256color
 export QT_QPA_PLATFORM=xcb
 export XDG_CONFIG_HOME=$HOME/.config
+export EDITOR=nvim
+export VISUAL=nvim
+
+# -------------------------------------------
+# Starship Prompt
+# -------------------------------------------
+if command -v starship > /dev/null 2>&1; then
+    eval "$(starship init zsh)"
+fi
 
 # -------------------------------------------
 # Initialize SSH agent (Can produce output, so moved below)
 # -------------------------------------------
 if [ -z "$SSH_AUTH_SOCK" ]; then
-    eval "$(ssh-agent -s)"
+    eval "$(ssh-agent -s)" > /dev/null 2>&1
 fi
 
 # -------------------------------------------
@@ -127,5 +147,7 @@ unset __conda_setup
 # -------------------------------------------
 # Node Version Manager
 # -------------------------------------------
-source /usr/share/nvm/init-nvm.sh
+if [ -f /usr/share/nvm/init-nvm.sh ]; then
+    source /usr/share/nvm/init-nvm.sh
+fi
 
